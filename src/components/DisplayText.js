@@ -6,9 +6,10 @@ function DisplayText(props) {
 
     return (
         <React.Fragment>
-            <TextSection
+            <h1>DISPLAY TEXT COMPONENT: {props}</h1>
+            {/* <TextSection
                 
-            />
+            /> */}
             {/* {Object.values(props.displayText).map((textSection) =>
             <TextSection
                 whenTextClicked = {props.onClickingText}

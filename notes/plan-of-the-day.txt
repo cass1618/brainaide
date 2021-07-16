@@ -2,3 +2,8 @@ Friday July 16
 1. Start building out React structure for main page
 2. Integrate ScraperAPI into React
 3. Start figuring out how to parse the data
+
+
+Currently trying to get the url entered in a form into React.  I am struggling a bit because before, I would add a new object to a list.  Currently all I'm trying to do is set one single url.  
+
+. . . although I suppose if the user could store multiple URLs that would be ideal.
