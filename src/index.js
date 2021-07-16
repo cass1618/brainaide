@@ -1,13 +1,24 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './styles/index.css';
-import App from './components/App';
-import reportWebVitals from './reportWebVitals';
+import React from "react";
+import ReactDOM from "react-dom";
+import "./styles/index.css";
+import App from "./components/App";
+import {createStore} from "redux";
+import rootReducer from "./reducers/index";
+import {Provider} from "react-redux";
+import reportWebVitals from "./reportWebVitals";
+
+const store = createStore(rootReducer);
+
+store.subscribe(() =>
+    console.log(store.getState())
+    );
 
 ReactDOM.render(
-  <React.StrictMode>
-    <App/>
-  </React.StrictMode>,
+    <React.StrictMode>
+        <Provider store = {store}>
+            <App/>
+        </Provider>
+    </React.StrictMode>,
   document.getElementById('root')
 );
 

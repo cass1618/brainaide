@@ -22,7 +22,7 @@ class AppControl extends React.Component {
     render() {
 
         let currentlyVisibleState = <UrlForm
-            onClickingLoad = {this.handleLoadingUrl}/>
+            onLoadingUrl = {this.handleLoadingUrl}/>
 
         return (
             <React.Fragment>
