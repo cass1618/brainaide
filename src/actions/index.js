@@ -4,8 +4,10 @@ export const toggleForm = () => ({
     type: c.TOGGLE_FORM
 });
 
-export const loadUrl = () => {
+export const loadUrl = (url) => {
+
     return {
-        type: c.LOAD_URL
+        type: c.LOAD_URL,
+        url: url
     }
 }

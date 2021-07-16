@@ -6,19 +6,22 @@ function DisplayText(props) {
 
     return (
         <React.Fragment>
-            {Object.values(props.displayText).map((textSection) =>
+            <TextSection
+                
+            />
+            {/* {Object.values(props.displayText).map((textSection) =>
             <TextSection
                 whenTextClicked = {props.onClickingText}
                 line = {textSection.line}/>
-            )}
+            )} */}
         </React.Fragment>
     );
 }
 
 DisplayText.propTypes = {
+    // url: PropTypes.string,
     displayText: PropTypes.object,
     onClickingText: PropTypes.func
-
 }
 
 export default DisplayText;

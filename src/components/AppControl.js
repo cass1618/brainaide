@@ -3,6 +3,7 @@ import UrlForm from "./UrlForm";
 import { connect } from 'react-redux';
 import PropTypes from "prop-types";
 import * as a from './../actions';
+import DisplayText from "./DisplayText";
 
 class AppControl extends React.Component {
 
@@ -13,21 +14,30 @@ class AppControl extends React.Component {
         };
     };
 
-    handleLoadingUrl = () => {
+    handleLoadingUrl = (url) => {
         const { dispatch } = this.props;
-        const action = a.toggleForm();
+        const action = a.loadUrl(url);
         dispatch(action);
     }
 
     render() {
 
-        let currentlyVisibleState = <UrlForm
-            onLoadingUrl = {this.handleLoadingUrl}/>
+        let currentlyVisibleState = null;
 
+        if(this.props.formVisibleOnPage) {
+            currentlyVisibleState = 
+                <UrlForm
+                    onLoadingUrl = {this.handleLoadingUrl}/>
+        } else {
+            currentlyVisibleState = 
+                <DisplayText
+                    displayText = {this.props.allSections}/>
+        }
+        
         return (
             <React.Fragment>
                 {currentlyVisibleState}
-                <button onClick = {this.handleClick}>LOAD</button>
+                {/* <button onClick = {this.handleClick}>LOAD</button> */}
             </React.Fragment>
         )
     }

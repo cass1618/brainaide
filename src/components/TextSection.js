@@ -6,15 +6,15 @@ function TextSection(props) {
     return (
         <React.Fragment>
             <div onClick = {() => props.whenTextClicked(props.id)}>
-                <h3>{props.location}</h3>
+                <h3>{props.line}</h3>
             </div>
         </React.Fragment>
     )
 }
 
 TextSection.propTypes = {
-    line: PropTypes.string.line,
-    whenTextClicked: PropTypes.function
+    line: PropTypes.string,
+    whenTextClicked: PropTypes.func
 }
 
 export default TextSection;
