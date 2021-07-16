@@ -1,0 +1,4 @@
+Friday July 16
+1. Start building out React structure for main page
+2. Integrate ScraperAPI into React
+3. Start figuring out how to parse the data
