@@ -13,4 +13,4 @@ function UrlForm(props) {
     );
 }
 
-export default NewTicketForm;
+export default UrlForm;
