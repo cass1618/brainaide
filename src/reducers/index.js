@@ -4,7 +4,7 @@ import {combineReducers} from "redux";
 
 const rootReducer = combineReducers({
     formVisibleOnPage: formVisibleReducer,
-    allTextSelections: displayTextReducer
+    allSections: displayTextReducer
 });
 
 export default rootReducer;

@@ -1,6 +1,8 @@
 import * as c from './../actions/ActionTypes';
 
-export default (state = {}, action) => {
+const displayTextReducer = (state = {}, action) => {
+
+    const {url, id} = action;
 
     switch(action.type) {
 
@@ -9,10 +11,12 @@ export default (state = {}, action) => {
                 [id]: {
                     url: url
                 }
-            })
+            });
 
         default:
             return state;
             
     }
 }
+
+export default displayTextReducer;

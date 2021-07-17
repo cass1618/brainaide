@@ -15,7 +15,7 @@ class AppControl extends React.Component {
     };
 
     handleLoadingUrl = (url) => {
-        const { dispatch } = this.props;
+        const {dispatch} = this.props;
         const action = a.loadUrl(url);
         dispatch(action);
     }
@@ -25,9 +25,9 @@ class AppControl extends React.Component {
         let currentlyVisibleState = null;
 
         if(this.props.formVisibleOnPage) {
-            currentlyVisibleState = 
-                <UrlForm
-                    onLoadingUrl = {this.handleLoadingUrl}/>
+            // currentlyVisibleState = 
+            //     <UrlForm
+            //         onLoadingUrl = {this.handleLoadingUrl}/>
         } else {
             currentlyVisibleState = 
                 <DisplayText
@@ -36,8 +36,10 @@ class AppControl extends React.Component {
         
         return (
             <React.Fragment>
+                <UrlForm
+                    onLoadingUrl = {this.handleLoadingUrl}/>
                 {currentlyVisibleState}
-                {/* <button onClick = {this.handleClick}>LOAD</button> */}
+                {/* <button onClick = {this.handleClick}>BUTTON</button> */}
             </React.Fragment>
         )
     }
@@ -45,11 +47,13 @@ class AppControl extends React.Component {
 }
 
 AppControl.propTypes = {
+    allSections: PropTypes.object,
     formVisibleOnPage: PropTypes.bool
 };
 
 const mapStateToProps = state => {
     return {
+        allSections: state.allSections,
         formVisibleOnPage: state.formVisibleOnPage
     }
 }

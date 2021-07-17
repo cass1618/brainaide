@@ -4,10 +4,14 @@ export const toggleForm = () => ({
     type: c.TOGGLE_FORM
 });
 
-export const loadUrl = (url) => {
+export const loadUrl = (rawHtml) => {
+
+    console.log("loadUrl index reducer")
+    const {url, id} = rawHtml;
 
     return {
         type: c.LOAD_URL,
-        url: url
+        url: url,
+        id: id
     }
 }

@@ -5,8 +5,9 @@ import PropTypes from "prop-types";
 function UrlForm(props) {
 
     function handleUrlFormSubmission(e) {
+
         e.preventDefault();
-        console.log("FORM");
+
         props.onLoadingUrl({url: e.target.url.value, id: v4()});
     }
 
@@ -19,15 +20,12 @@ function UrlForm(props) {
             <form onSubmit={handleUrlFormSubmission}>
                 <input
                     type="url"
-                    name="urlname"
+                    name="url"
                     placeholder="Enter URL"/>
+                    <button type="submit">LOAD</button>
             </form>
         </React.Fragment>
     );
-}
-
-UrlForm.propTypes = {
-    formSubmissionHandler: PropTypes.func,
 }
 
 export default UrlForm;
