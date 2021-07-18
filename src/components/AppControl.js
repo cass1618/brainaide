@@ -19,20 +19,7 @@ class AppControl extends React.Component {
     //     // };
     // };
 
-    // makeApiCall = (url) => {
- 
-    //     request(`http://api.scraperapi.com?api_key=${process.env.REACT_APP_API_KEY}&url=${url}&render=true&autoparse=true&country_code=us`)
 
-    //     .then(response => {
-    //         this.setState({
-    //             isLoaded: true,
-    //             rawHtml: response
-    //         });
-    //     })
-    //     .catch(error => {
-    //     console.log(error)
-    //     })
-    // }
 
     componentDidMount() {
         const {dispatch} = this.props;
@@ -86,9 +73,8 @@ class AppControl extends React.Component {
             console.log("isLoading")
             return <React.Fragment>Loading...</React.Fragment>;
         } else {
-            console.log("RAW HTML: "+rawHtml.rawHtml)
             const body = rawHtml.rawHtml.split("<body>")[1]
-            console.log(body);
+            
             return (
                 
                 <React.Fragment>

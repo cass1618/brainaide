@@ -11,10 +11,6 @@ import middlewareLogger from './middleware/middleware-logger';
 
 const store = createStore(htmlReducer, applyMiddleware(middlewareLogger, thunkMiddleware));
 
-// store.subscribe(() =>
-//     console.log(store.getState())
-//     );
-
 ReactDOM.render(
     <React.StrictMode>
         <Provider store = {store}>

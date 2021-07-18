@@ -19,18 +19,16 @@ export const getHtmlFailure = (error) => ({
     error
 })
 
-
 export const makeApiCall = () => {
-    return dispatch => {
+    return async dispatch => {
         dispatch(requestHtml);
 
-        return request(`http://api.scraperapi.com?api_key=${process.env.REACT_APP_API_KEY}&url=https://www.learnhowtoprogram.com/react/react-with-apis/introduction-to-redux-middleware&render=true&autoparse=true&country_code=us`)
+        try {
+            const response = await request(`http://api.scraperapi.com?api_key=${process.env.REACT_APP_API_KEY}&url=https://www.learnhowtoprogram.com/react/react-with-apis/introduction-to-redux-middleware&render=true&autoparse=true&country_code=us`);
+            dispatch(getHtmlSuccess(response));
 
-        .then(response => {
-            dispatch(getHtmlSuccess(response))
-        })
-        .catch(error => {
+        } catch (error) {
             dispatch(getHtmlFailure(error));
-        })
+        }
     }
 }
