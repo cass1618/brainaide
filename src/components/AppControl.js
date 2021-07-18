@@ -100,13 +100,11 @@ class AppControl extends React.Component {
             console.log(body);
             return (
                 <React.Fragment>
-                <h1>rawHtml</h1>
                         <Markup content={body}/>
                 </React.Fragment>
             );
         }
       }
-
 }
 
 AppControl.propTypes = {
