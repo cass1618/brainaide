@@ -87,14 +87,14 @@ class AppControl extends React.Component {
             return <React.Fragment>Loading...</React.Fragment>;
         } else {
             console.log("RAW HTML: "+rawHtml.rawHtml)
-            // const body = rawHtml.split("<body>")[1]
-            // console.log(body);
+            const body = rawHtml.rawHtml.split("<body>")[1]
+            console.log(body);
             return (
                 
                 <React.Fragment>
                         {/* {currentlyVisibleState} */}
-                        <h1>rawHtml=</h1>
-                        {/* <Markup content={rawHtml}/> */}
+                        
+                        <Markup content={body}/>
                 </React.Fragment>
             );
         }

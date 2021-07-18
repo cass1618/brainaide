@@ -16,7 +16,7 @@ Currently trying to get the url entered in a form into React.  I am struggling a
 . . . although I suppose if the user could store multiple URLs that would be ideal.
 
 
-Saturday July 17
+Sunday July 18
 1. Update the API so that the user can enter the url and it will be loaded
 1. Figure out how to apply CSS styles to the displayed page
 1. Split paragraphs up and add id's so they can each be styled differently

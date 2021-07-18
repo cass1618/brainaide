@@ -3,7 +3,8 @@ import * as c from "./../actions/ActionTypes";
 let initialState = {
     isLoading: false,
     rawHtml: "empty",
-    error: null
+    error: null,
+    formVisibleOnPage: false
 }
   
 export default (state = initialState, action) => {
