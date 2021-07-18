@@ -1,74 +1,51 @@
 import React from "react";
-// import UrlForm from "./UrlForm";
-import { connect } from 'react-redux';
+import UrlForm from "./UrlForm";
+import {connect} from 'react-redux';
 import PropTypes from "prop-types";
-import * as a from './../actions';
+// import * as a from './../actions';
 // import DisplayText from "./DisplayText";
-import request from "request-promise";
+// import request from "request-promise";
+import {makeApiCall} from "./../actions";
 import {Markup} from "interweave";
 
 class AppControl extends React.Component {
 
-    constructor(props) {
-        super(props);
-        this.state = {
-            error: null,
-            isLoaded: false,
-            rawHtml: "empty"
-        };
-    };
+    // constructor(props) {
+    //     super(props);
+    //     // this.state = {
+    //     //     isLoading: false,
+    //     //     rawHtml: "empty",
+    //     //     error: null
+    //     // };
+    // };
 
-    makeApiCall = () => {
+    // makeApiCall = (url) => {
  
-        request(`http://api.scraperapi.com?api_key=${process.env.REACT_APP_API_KEY}&url=https://www.learnhowtoprogram.com/react/functional-programming-with-javascript/using-node-in-the-command-line&render=true&autoparse=true&country_code=us`)
+    //     request(`http://api.scraperapi.com?api_key=${process.env.REACT_APP_API_KEY}&url=${url}&render=true&autoparse=true&country_code=us`)
 
-        .then(response => {
-            this.setState({
-                isLoaded: true,
-                rawHtml: response
-            });
-        })
-        .catch(error => {
-        console.log(error)
-        })
-      }
+    //     .then(response => {
+    //         this.setState({
+    //             isLoaded: true,
+    //             rawHtml: response
+    //         });
+    //     })
+    //     .catch(error => {
+    //     console.log(error)
+    //     })
+    // }
 
     componentDidMount() {
-        this.makeApiCall()
-    }
-
-    handleLoadingUrl = (url) => {
         const {dispatch} = this.props;
-        const action = a.loadUrl(url);
-        dispatch(action);
+        dispatch(makeApiCall());
     }
 
-    // render() {
+    // handleLoadingUrl = (url) => {
+    //     const {dispatch} = this.props;
+    //     const action = a.loadUrl(url);
+    //     dispatch(action);
+    // }
 
-    //     let currentlyVisibleState = null;
 
-        // const {error, isLoaded, rawhtml} = this.state;
-
-        // if(error) {
-        //     return (
-        //         <React.Fragment>
-        //             ERROR: {error.message}
-        //         </React.Fragment>
-        //     )
-        // } else if (!isLoaded) {
-        //     return (
-        //         <React.Fragment>
-        //             LOADING . . .
-        //         </React.Fragment>
-        //         )
-        // } else {
-        //     return (
-        //         <React.Fragment>
-        //             <h1>RAW HTML</h1>
-        //             <p>{rawhtml}</p>
-        //         </React.Fragment>
-        //     )
-        // }
 
         // if(this.props.formVisibleOnPage) {
 
@@ -90,21 +67,38 @@ class AppControl extends React.Component {
     // }
 
     render() {
-        const { error, isLoaded, rawHtml } = this.state;
+        let currentlyVisibleState = null;
+
+        // if(this.props.formVisibleOnPage) {
+            currentlyVisibleState = 
+            <UrlForm onLoadingUrl = {this.makeApiCall}/>
+        // } else {
+        //     currentlyVisibleState = 
+        //         <DisplayText
+        //             displayText = {this.props.allSections}/>
+        // }
+
+
+        const {error, isLoading, rawHtml} = this.props;
         if (error) {
             return <React.Fragment>Error: {error.message}</React.Fragment>;
-        } else if (!isLoaded) {
+        } else if (isLoading) {
+            console.log("isLoading")
             return <React.Fragment>Loading...</React.Fragment>;
         } else {
-            const body = rawHtml.split("<body>")[1]
-            console.log(body);
+            console.log("RAW HTML: "+rawHtml.rawHtml)
+            // const body = rawHtml.split("<body>")[1]
+            // console.log(body);
             return (
+                
                 <React.Fragment>
-                        <Markup content={body}/>
+                        {/* {currentlyVisibleState} */}
+                        <h1>rawHtml=</h1>
+                        {/* <Markup content={rawHtml}/> */}
                 </React.Fragment>
             );
         }
-      }
+    }
 }
 
 AppControl.propTypes = {
@@ -114,7 +108,9 @@ AppControl.propTypes = {
 
 const mapStateToProps = state => {
     return {
-        allSections: state.allSections,
+        rawHtml: state.rawHtml,
+        isLoading: state.isLoading,
+        error: state.error,
         formVisibleOnPage: state.formVisibleOnPage
     }
 }

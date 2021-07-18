@@ -2,12 +2,14 @@ import React from "react";
 import ReactDOM from "react-dom";
 import "./styles/index.css";
 import App from "./components/App";
-import {createStore} from "redux";
+import {createStore, applyMiddleware} from "redux";
 import rootReducer from "./reducers/index";
 import {Provider} from "react-redux";
 import reportWebVitals from "./reportWebVitals";
+import thunkMiddleware from 'redux-thunk';
+import middlewareLogger from './middleware/middleware-logger';
 
-const store = createStore(rootReducer);
+const store = createStore(rootReducer, applyMiddleware(middlewareLogger, thunkMiddleware));
 
 // store.subscribe(() =>
 //     console.log(store.getState())

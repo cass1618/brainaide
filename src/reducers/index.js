@@ -1,10 +1,10 @@
 import formVisibleReducer from "./form-visible-reducer";
-import displayTextReducer from "./display-text-reducer"
+import htmlReducer from "./html-reducer";
 import {combineReducers} from "redux";
 
 const rootReducer = combineReducers({
     formVisibleOnPage: formVisibleReducer,
-    allSections: displayTextReducer
+    rawHtml: htmlReducer
 });
 
 export default rootReducer;
