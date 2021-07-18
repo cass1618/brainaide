@@ -12,12 +12,12 @@ class UrlLoader extends React.Component {
 
     render() {
 
-        const {error, isLoading, rawHtml} = this.props;
+        const {rawHtml} = this.props;
         console.log("isLoading: "+rawHtml.isLoading)
         console.log("rawHtml: "+rawHtml.rawHtml)
 
-        if (error) {
-            return <React.Fragment>Error: {error.message}</React.Fragment>;
+        if (rawHtml.error) {
+            return <React.Fragment>Error: {rawHtml.error.message}</React.Fragment>;
 
         } else if (rawHtml.isLoading) {
             console.log("isLoading")
