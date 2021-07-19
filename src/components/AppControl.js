@@ -1,103 +1,66 @@
 import React from "react";
+import UrlLoader from "./UrlLoader";
 import UrlForm from "./UrlForm";
-import {connect} from 'react-redux';
+import MainDisplay from "./MainDisplay";
+import { connect } from 'react-redux';
 import PropTypes from "prop-types";
-// import * as a from './../actions';
-// import DisplayText from "./DisplayText";
-// import request from "request-promise";
-import {makeApiCall} from "./../actions";
-import {Markup} from "interweave";
+import * as a from './../actions';
+import {withFirestore} from "react-redux-firebase";
 
 class AppControl extends React.Component {
 
-    // constructor(props) {
-    //     super(props);
-    //     // this.state = {
-    //     //     isLoading: false,
-    //     //     rawHtml: "empty",
-    //     //     error: null
-    //     // };
-    // };
-
-
-
-    componentDidMount() {
-        const {dispatch} = this.props;
-        dispatch(makeApiCall());
+    constructor(props) {
+        super(props);
+            this.state = {
+                currentUrl: null,
+                loadingUrl: false,
+                urlFormVisible: false
+            }
     }
 
-    // handleLoadingUrl = (url) => {
-    //     const {dispatch} = this.props;
-    //     const action = a.loadUrl(url);
-    //     dispatch(action);
-    // }
+    handleClickAddUrl = () => {
+        this.setState({urlFormVisible: true})
+    }
 
-
-
-        // if(this.props.formVisibleOnPage) {
-
-        // } else {
-        //     currentlyVisibleState = 
-        //         <DisplayText
-        //             displayText = {this.props.allSections}/>
-        // }
-        
-        // return (
-
-        //     // <React.Fragment>
-        //     //     <UrlForm
-        //     //         onLoadingUrl = {this.handleLoadingUrl}/>
-        //     //     {currentlyVisibleState}
-        //     //     {/* <button onClick = {this.handleClick}>BUTTON</button> */}
-        //     // </React.Fragment>
-    //     // )
-    // }
+    handleAddingUrlToList = (file) => {
+        const {dispatch} = this.props;
+        const action = a.addFile(file);
+        dispatch(action);
+        this.setState({
+            urlFormVisible: false
+        })
+    }
 
     render() {
         let currentlyVisibleState = null;
 
-        // if(this.props.formVisibleOnPage) {
-            currentlyVisibleState = 
-            <UrlForm onLoadingUrl = {this.makeApiCall}/>
-        // } else {
-        //     currentlyVisibleState = 
-        //         <DisplayText
-        //             displayText = {this.props.allSections}/>
-        // }
-
-
-        const {error, isLoading, rawHtml} = this.props;
-        if (error) {
-            return <React.Fragment>Error: {error.message}</React.Fragment>;
-        } else if (isLoading) {
-            console.log("isLoading")
-            return <React.Fragment>Loading...</React.Fragment>;
+        if(this.state.urlFormVisible) {
+            currentlyVisibleState = <UrlForm onLoadingUrl = {this.handleAddingUrlToList}/>
         } else {
-            const body = rawHtml.rawHtml.split("<body>")[1]
-            
-            return (
-                
-                <React.Fragment>
-                        {/* {currentlyVisibleState} */}
-                        
-                        <Markup content={body}/>
-                </React.Fragment>
-            );
+            currentlyVisibleState = 
+                <MainDisplay
+                    htmlFileList = {this.props.storedHtmlFileList}
+                    onClickingLoadUrl = {this.handleClickAddUrl}/>
         }
+
+        return (
+            <React.Fragment>
+                <h1>App Control Return</h1>
+                {currentlyVisibleState}
+            </React.Fragment>
+        )
     }
 }
 
 AppControl.propTypes = {
-    allSections: PropTypes.object,
-    formVisibleOnPage: PropTypes.bool
+    storedHtmlFileList: PropTypes.object,
+    urlFormVisible: PropTypes.bool
 };
 
 const mapStateToProps = state => {
     return {
-        rawHtml: state.rawHtml,
-        isLoading: state.isLoading,
-        error: state.error,
-        formVisibleOnPage: state.formVisibleOnPage
+        storedHtmlFileList: state.storedHtmlFileList,
+        urlFormVisible: state.urlFormVisible
     }
 }
 

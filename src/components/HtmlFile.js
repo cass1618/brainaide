@@ -1,19 +1,21 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-function Url(props) {
+function HtmlFile(props) {
 
     return (
         <React.Fragment>
             <h2>{props.url}</h2>
+            <h2>{props.id}</h2>
+            <h2>{props.key}</h2>
         </React.Fragment>
     );
 }
 
-Url.propTypes = {
+HtmlFile.propTypes = {
     url: PropTypes.string,
-    body: PropTypes.string,
+    //fullText: PropTypes.string,
     id: PropTypes.string
 }
 
-export default Url;
+export default HtmlFile;

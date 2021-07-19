@@ -5,13 +5,22 @@ export const toggleForm = () => ({
     type: c.TOGGLE_FORM
 });
 
+export const addFile = (htmlFile) => {
+    const {url, id} = htmlFile
+    return {
+        type: c.ADD_FILE,
+        url: url,
+        id: id
+    }
+}
+
 export const requestHtml = () => ({
     type: c.REQUEST_HTML
 });
 
-export const getHtmlSuccess = (rawHtml) => ({
+export const getHtmlSuccess = (htmlFile) => ({
     type: c.GET_HTML_SUCCESS,
-    rawHtml
+    htmlFile
 });
 
 export const getHtmlFailure = (error) => ({

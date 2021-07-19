@@ -1,13 +1,12 @@
 import React from "react";
 import Header from "./Header";
-// import AppControl from "./AppControl";
-import UrlLoader from "./UrlLoader";
+import AppControl from "./AppControl";
 
 function App() {
   return (
     <React.Fragment>
       <Header/>
-      <UrlLoader/>
+      <AppControl/>
     </React.Fragment>
   );
 }

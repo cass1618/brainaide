@@ -3,13 +3,17 @@ import ReactDOM from "react-dom";
 import "./styles/index.css";
 import App from "./components/App";
 import {createStore, applyMiddleware} from "redux";
-import htmlReducer from "./reducers/index";
+import rootReducer from "./reducers/index";
 import {Provider} from "react-redux";
 import reportWebVitals from "./reportWebVitals";
 import thunkMiddleware from 'redux-thunk';
 import middlewareLogger from './middleware/middleware-logger';
 
-const store = createStore(htmlReducer, applyMiddleware(middlewareLogger, thunkMiddleware));
+const store = createStore(rootReducer, applyMiddleware(middlewareLogger, thunkMiddleware));
+
+store.subscribe(() =>
+    console.log(store.getState())
+    );
 
 ReactDOM.render(
     <React.StrictMode>

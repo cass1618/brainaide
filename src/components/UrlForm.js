@@ -19,7 +19,7 @@ function UrlForm(props) {
         <React.Fragment>
             <form onSubmit={handleUrlFormSubmission}>
                 <input
-                    type="url"
+                    type="text"
                     name="url"
                     placeholder="Enter URL"/>
                     <button type="submit">LOAD</button>

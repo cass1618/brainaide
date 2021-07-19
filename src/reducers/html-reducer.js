@@ -1,35 +1,44 @@
 import * as c from "./../actions/ActionTypes";
 
-let initialState = {
-    isLoading: true,
-    rawHtml: "empty",
-    error: null,
-    formVisibleOnPage: false
-}
-  
-export default (state = initialState, action) => {
+// let initialState = {
+//     isLoading: true,
+//     currentUrl: "empty",
+//     error: null,
+// }
+
+export default (state = {}, action) => {
+    // export default (state = initialState, action) => {
+
+    const {url, id} = action;
     
     switch(action.type) {
 
-        case c.REQUEST_HTML:
-            console.log("REQUEST HTML")
+        case c.ADD_FILE:
             return Object.assign({}, state, {
-                isLoading: true
-            });
+                [id]: {
+                    url: url
+                }
+            })
 
-        case c.GET_HTML_SUCCESS:
-            console.log("GET HTML SUCCESS")
-            return Object.assign({}, state, {
-                isLoading: false,
-                rawHtml: action.rawHtml
-            });
+        // case c.REQUEST_HTML:
+        //     console.log("REQUEST HTML")
+        //     return Object.assign({}, state, {
+        //         isLoading: true
+        //     });
 
-        case c.GET_HTML_FAILURE:
-            console.log("GET HTML FSAILURE")
-            return Object.assign({}, state, {
-                isLoading: false,
-                error: action.error
-            });
+        // case c.GET_HTML_SUCCESS:
+        //     console.log("GET HTML SUCCESS")
+        //     return Object.assign({}, state, {
+        //         isLoading: false,
+        //         htmlFile: action.htmlFile
+        //     });
+
+        // case c.GET_HTML_FAILURE:
+        //     console.log("GET HTML FAILURE")
+        //     return Object.assign({}, state, {
+        //         isLoading: false,
+        //         error: action.error
+        //     });
 
         default:
             return state;

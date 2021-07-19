@@ -5,35 +5,35 @@ import {Markup} from "interweave";
 
 class UrlLoader extends React.Component {
 
-    componentDidMount() {
-        const {dispatch} = this.props;
-        dispatch(makeApiCall());
-    }
+    // componentDidMount() {
+    //     const {dispatch} = this.props;
+    //     dispatch(makeApiCall());
+    // }
 
-    render() {
+    // render() {
 
-        const {rawHtml} = this.props;
-        console.log("isLoading: "+rawHtml.isLoading)
-        console.log("rawHtml: "+rawHtml.rawHtml)
+    //     const {rawHtml} = this.props;
+    //     console.log("isLoading: "+rawHtml.isLoading)
+    //     console.log("rawHtml: "+rawHtml.rawHtml)
 
-        if (rawHtml.error) {
-            return <React.Fragment>Error: {rawHtml.error.message}</React.Fragment>;
+    //     if (rawHtml.error) {
+    //         return <React.Fragment>Error: {rawHtml.error.message}</React.Fragment>;
 
-        } else if (rawHtml.isLoading) {
-            console.log("isLoading")
-            return <React.Fragment>Loading...</React.Fragment>;
+    //     } else if (rawHtml.isLoading) {
+    //         console.log("isLoading")
+    //         return <React.Fragment>Loading...</React.Fragment>;
 
-        } else {
-            const body = rawHtml.rawHtml.split("<body>")[1]
+    //     } else {
+    //         const body = rawHtml.rawHtml.split("<body>")[1]
 
-            return (
+    //         return (
                 
-                <React.Fragment>
-                    <Markup content={body}/>
-                </React.Fragment>
-            );
-        }
-    }
+    //             <React.Fragment>
+    //                 <Markup content={body}/>
+    //             </React.Fragment>
+    //         );
+    //     }
+    // }
 }
 
 const mapStateToProps = state => {
