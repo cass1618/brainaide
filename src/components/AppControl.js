@@ -22,10 +22,10 @@ class AppControl extends React.Component {
         this.setState({urlFormVisible: true})
     }
 
-    handleAddingUrlToList = (file) => {
-        const {dispatch} = this.props;
-        const action = a.addFile(file);
-        dispatch(action);
+    handleAddingUrlToList = () => {
+        // const {dispatch} = this.props;
+        // const action = a.addFile(file);
+        // dispatch(action);
         this.setState({
             urlFormVisible: false
         })
@@ -66,4 +66,4 @@ const mapStateToProps = state => {
 
 AppControl = connect(mapStateToProps)(AppControl);
 
-export default AppControl;
+export default withFirestore(AppControl);

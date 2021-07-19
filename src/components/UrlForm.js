@@ -1,14 +1,23 @@
 import React from "react";
-import {v4} from "uuid";
 import PropTypes from "prop-types";
+import {useFirestore} from "react-redux-firebase";
 
 function UrlForm(props) {
 
-    function handleUrlFormSubmission(e) {
+    const firestore = useFirestore();
+
+    function addFileToFirestore(e) {
 
         e.preventDefault();
 
-        props.onLoadingUrl({url: e.target.url.value, id: v4()});
+        props.onLoadingUrl();
+
+        return firestore.collection("ticket").add(
+            {
+                url: e.target.url.value,
+                fullText: "example text"
+            }
+        )
     }
 
     UrlForm.propTypes = {
@@ -17,7 +26,7 @@ function UrlForm(props) {
 
     return (
         <React.Fragment>
-            <form onSubmit={handleUrlFormSubmission}>
+            <form onSubmit={addFileToFirestore}>
                 <input
                     type="text"
                     name="url"
