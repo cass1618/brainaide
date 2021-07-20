@@ -11,6 +11,7 @@ function UrlForm(props) {
         e.preventDefault();
 
         props.onLoadingUrl();
+        // props.makeAnApiCallTest();
 
         return firestore.collection("htmlFiles").add(
             {
@@ -21,7 +22,8 @@ function UrlForm(props) {
     }
 
     UrlForm.propTypes = {
-        onLoadingUrl: PropTypes.func
+        onLoadingUrl: PropTypes.func,
+        makeAnApiCallTest: PropTypes.func
     }
 
     return (

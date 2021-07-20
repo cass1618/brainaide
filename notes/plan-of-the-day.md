@@ -26,4 +26,8 @@ Sunday July 18
 Monday July 19
 ## API call was working before.  Now I need to figure out how to call the function from App Control.
 
-
+Form for entering URL
+url value is collected from form
+api call is made using the url
+html file is returned
+file is added to firestore
