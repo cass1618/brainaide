@@ -2,28 +2,30 @@ import React from "react";
 import PropTypes from "prop-types";
 import HtmlFile from "./HtmlFile";
 import {useSelector} from "react-redux";
-import {useFirestoreConnect, isLoaded, isEmpty} from "react-redux-firebase";
+import {useFirestoreConnect, isLoaded} from "react-redux-firebase";
 
 function MainDisplay(props) {
 
     useFirestoreConnect([
-        {collection: "urls"}
+        {collection: "htmlFiles"}
     ]);
 
-    const urls = useSelector(state => state.firestore.ordered.urls);
+    const htmlFiles = useSelector(state => state.firestore.ordered.htmlFiles);
 
-    if(isLoaded(urls)) {
+    if(isLoaded(htmlFiles)) {
         return (
             <React.Fragment>
                 <h1>MAIN DISPLAY PAGE</h1>
 
-                {Object.values(props.htmlFileList).map((htmlFile) => 
-                    <HtmlFile
-                    url = {htmlFile.url}
-                    fullText = {htmlFile.fullText}
-                    id = {htmlFile.id}
-                    key = {htmlFile.id}/>
-                )}
+                {htmlFiles.map((htmlFile) => {
+                    return (
+                        <HtmlFile
+                            url = {htmlFile.url}
+                            fullText = {htmlFile.fullText}
+                            id = {htmlFile.id}
+                            key = {htmlFile.id}/>
+                    )
+                })}
 
                 <button onClick = {props.onClickingLoadUrl}>Add URL</button>
             </React.Fragment>
@@ -38,7 +40,6 @@ function MainDisplay(props) {
 }
 
 MainDisplay.propTypes = {
-    // htmlFileList: PropTypes.object,
     onClickingLoadUrl: PropTypes.func
 }
 

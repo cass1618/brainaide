@@ -39,7 +39,6 @@ class AppControl extends React.Component {
         } else {
             currentlyVisibleState = 
                 <MainDisplay
-                    htmlFileList = {this.props.storedHtmlFileList}
                     onClickingLoadUrl = {this.handleClickAddUrl}/>
         }
 
@@ -59,7 +58,6 @@ AppControl.propTypes = {
 
 const mapStateToProps = state => {
     return {
-        storedHtmlFileList: state.storedHtmlFileList,
         urlFormVisible: state.urlFormVisible
     }
 }

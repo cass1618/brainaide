@@ -12,7 +12,7 @@ function UrlForm(props) {
 
         props.onLoadingUrl();
 
-        return firestore.collection("urls").add(
+        return firestore.collection("htmlFiles").add(
             {
                 url: e.target.url.value,
                 fullText: "example text"
