@@ -7,12 +7,12 @@ import {useFirestoreConnect, isLoaded, isEmpty} from "react-redux-firebase";
 function MainDisplay(props) {
 
     useFirestoreConnect([
-        { collection: "htmlFiles" }
+        {collection: "urls"}
     ]);
 
-    const htmlFiles = useSelector(state => state.firestore.ordered.htmlFiles);
+    const urls = useSelector(state => state.firestore.ordered.urls);
 
-    if(isLoaded(htmlFiles)) {
+    if(isLoaded(urls)) {
         return (
             <React.Fragment>
                 <h1>MAIN DISPLAY PAGE</h1>
