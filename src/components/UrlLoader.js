@@ -5,6 +5,8 @@ import {Markup} from "interweave";
 
 class UrlLoader extends React.Component {
 
+
+
     // componentDidMount() {
     //     const {dispatch} = this.props;
     //     dispatch(makeApiCall());
@@ -12,19 +14,19 @@ class UrlLoader extends React.Component {
 
     // render() {
 
-    //     const {rawHtml} = this.props;
-    //     console.log("isLoading: "+rawHtml.isLoading)
-    //     console.log("rawHtml: "+rawHtml.rawHtml)
+    //     const {htmlFile} = this.props;
+    //     console.log("isLoading: "+htmlFile.isLoading)
+    //     console.log("htmlFile: "+htmlFile.htmlFile)
 
-    //     if (rawHtml.error) {
-    //         return <React.Fragment>Error: {rawHtml.error.message}</React.Fragment>;
+    //     if (htmlFile.error) {
+    //         return <React.Fragment>Error: {htmlFile.error.message}</React.Fragment>;
 
-    //     } else if (rawHtml.isLoading) {
+    //     } else if (htmlFile.isLoading) {
     //         console.log("isLoading")
     //         return <React.Fragment>Loading...</React.Fragment>;
 
     //     } else {
-    //         const body = rawHtml.rawHtml.split("<body>")[1]
+    //         const body = htmlFile.htmlFile.split("<body>")[1]
 
     //         return (
                 
@@ -38,10 +40,9 @@ class UrlLoader extends React.Component {
 
 const mapStateToProps = state => {
     return {
-        rawHtml: state.rawHtml,
+        htmlFile: state.htmlFile,
         isLoading: state.isLoading,
         error: state.error,
-        formVisibleOnPage: state.formVisibleOnPage
     }
 }
 

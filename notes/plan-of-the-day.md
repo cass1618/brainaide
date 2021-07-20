@@ -21,3 +21,9 @@ Sunday July 18
 1. Figure out how to apply CSS styles to the displayed page
 1. Split paragraphs up and add id's so they can each be styled differently
 1. Create a function that will randomly select a font and color
+
+
+Monday July 19
+## API call was working before.  Now I need to figure out how to call the function from App Control.
+
+

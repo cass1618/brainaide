@@ -23,9 +23,6 @@ class AppControl extends React.Component {
     }
 
     handleAddingUrlToList = () => {
-        // const {dispatch} = this.props;
-        // const action = a.addFile(file);
-        // dispatch(action);
         this.setState({
             urlFormVisible: false
         })
