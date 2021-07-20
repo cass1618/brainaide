@@ -31,3 +31,25 @@ url value is collected from form
 api call is made using the url
 html file is returned
 file is added to firestore
+
+
+TUESDAY JULY 20
+
+DON'T WORRY ABOUT API CALL RIGHT NOW
+
+Figure out how to set the state of an object, and then add that object to firestore
+
+How is this different from the form??
+
+
+Have the class component return the rawHtml to the AddToFirebase functional component.
+
+Then the functional component can take the object and add it to firestore.
+
+
+1. Set up a basic class component that returns a hard coded array with a url and an html string
+1. Send the array to a basic functional component
+1. The functional component will create an object using the url and html string
+1. The functional component will then add the object to firestore
+
+HOW DO I PASS AN ARRAY FROM A CLASS COMPONENT TO A FUNCTIONAL COMPONENT
