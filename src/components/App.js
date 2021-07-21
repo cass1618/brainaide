@@ -1,13 +1,14 @@
 import React from "react";
 import Header from "./Header";
 // import AppControl from "./AppControl";
-import UrlLoader from "./UrlLoader";
+// import UrlLoader from "./UrlLoader";
+import FirestoreClass from "./FirestoreClass";
 
 function App() {
   return (
     <React.Fragment>
       <Header/>
-      <UrlLoader/>
+      <FirestoreClass/>
     </React.Fragment>
   );
 }
