@@ -3,6 +3,15 @@
 </style>
 
 
+THURSDAY JULY 22
+1. Currently able to make the API call and store the result in firestore
+* HOWEVER it doesn't wait until the API call is finished so I have to figure out how to do async and what not
+
+
+
+
+
+
 WEDNESDAY JULY 21
 
 <span class="done">1. Successfully add htmlFile array to Firestore</span>
