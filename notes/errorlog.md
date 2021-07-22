@@ -1,0 +1,1 @@
+Not really an error but, I noticed that if I click the submit button within the first couple seconds, it stores the placeholder array in firestore.  So I guess I need to make it wait until the API is done before storing it 

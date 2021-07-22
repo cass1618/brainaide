@@ -6,33 +6,46 @@
 WEDNESDAY JULY 21
 
 <span class="done">1. Successfully add htmlFile array to Firestore</span>
+
+
+<div class="done">
 2. Set API result to state in Class component
     1. Make API call as in the lesson
     2. Set the array.state to the url, html
-
-    
-    Need a form to get the url
-    Currently I can make a form that accepts user input, and then sends the user input to firestore.
-
-    I need the API to be called once the form is submitted
-
-    Why does API have to be called on componentDidMount?  Can I have the api be called when I click the submit button??
-
-    * Write a makeAnApiCall() function
-    * Call the function inside the return when the form from the functional component is submitted
-
-    
-    Should I use a separate functional component to take the user input?
-    I currently have a functional component that takes props from the class component and sends them to firestore.
-
-    1. Form accepts user input url => stores it in firestore 
-    1. A component retrieves the url from firestore => sends it to class component
-    1. Class component calls the API, sends the output back to the functional component
+</div>
 
 
-##HOLD ON
+Need a form to get the url
+Currently I can make a form that accepts user input, and then sends the user input to firestore.
 
-###FIRST I SHOULD TRY CALLING THE API WITH THE HARD-CODED URL TO SEE IF I CAN STORE THE OUTPUT IN FIRESTORE!
+I need the API to be called once the form is submitted
+
+Why does API have to be called on componentDidMount?  Can I have the api be called when I click the submit button??
+
+* Write a makeAnApiCall() function
+* Call the function inside the return when the form from the functional component is submitted
+
+
+Should I use a separate functional component to take the user input?
+I currently have a functional component that takes props from the class component and sends them to firestore.
+
+1. Form accepts user input url => stores it in firestore 
+1. A component retrieves the url from firestore => sends it to class component
+1. Class component calls the API, sends the output back to the functional component
+
+<div class="done">
+HOLD ON
+
+FIRST I SHOULD TRY CALLING THE API WITH THE HARD-CODED URL TO SEE IF I CAN STORE THE OUTPUT IN FIRESTORE!
+</div>
+
+## NEXT
+Currently url is hard-coded.  All I need to do is have a form for the user to type in the url and then submit and send it as an argument to the API call function!
+
+1. Hard-code the url as an argument outside of the API call function
+1. Create a form that will accept a url and pass it in
+
+I already have a form . . could I possible accept the user input here? 
 
 
 

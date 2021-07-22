@@ -22,7 +22,9 @@ class FirestoreClass extends React.Component {
     //Props.state should have the response stored => send it to functional component
     handleMakingApiCall = () => {
         console.log("handleMakingApiCall");
-        request(`http://api.scraperapi.com?api_key=${process.env.REACT_APP_API_KEY}&url=https://www.learnhowtoprogram.com/react&render=true&autoparse=true&country_code=us`)
+        const url = "https://en.wikipedia.org/wiki/Cognitive_neuroscience"
+
+        request(`http://api.scraperapi.com?api_key=${process.env.REACT_APP_API_KEY}&url=${url}&render=true&autoparse=true&country_code=us`)
         // .then(response => console.log(response))
         .then(response => {
             this.setState({
