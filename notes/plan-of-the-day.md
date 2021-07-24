@@ -4,6 +4,8 @@
 
 
 
+
+
 FRIDAY JULY 23
 
 I currently have one function to send data to firestore, and another that will make the API call
@@ -14,13 +16,17 @@ Is it possible to duplicate what I have, but split the firestore and apiCall fun
 
 That way I could call them separately, and not call the firestore until the file is loaded
 
+I WORKED!  I have 2 different buttons right now - I'd rather just have the API call and then the next function would run right away, but, I think I'll try to figure that out later
+
+1. I still have to figure out how to pass the url as an argument into the API function rather than hard coding it . .
 
 
 
+<div class="done">
 THURSDAY JULY 22
 1. Currently able to make the API call and store the result in firestore
 * HOWEVER it doesn't wait until the API call is finished so I have to figure out how to do async and what not
-
+</done>
 
 
 
