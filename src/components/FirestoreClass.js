@@ -2,6 +2,7 @@ import React from "react";
 // import * as a from './../actions';
 import {withFirestore} from "react-redux-firebase";
 import FirestoreFunctional from "./FirestoreFunctional";
+import Api from "./Api";
 import request from "request-promise";
 
 class FirestoreClass extends React.Component {
@@ -31,7 +32,7 @@ class FirestoreClass extends React.Component {
                 isLoaded: true,
                 anArray: ["url", response]
             });
-        }).then((html)=> console.log(html))
+        })
         .catch(error => {
         console.log(error)
         })
@@ -39,13 +40,17 @@ class FirestoreClass extends React.Component {
 
     render() {
         let currentlyVisibleState = null;
-        console.log("this.state.anArray "+this.state.anArray)
+        console.log("this.state.isLoaded "+this.state.isLoaded)
 
         //Will accept user input from functional component
 
         //Can I put a function prior to send props over?
         //Will send the array to the functional component
-        currentlyVisibleState = <FirestoreFunctional makeApiCall = {this.handleMakingApiCall} propsFromClass = {this.state.anArray} addArrayToFirestore = {this.handleAddingArrayToFirestore}/>
+        if(!this.state.isLoaded) {
+        currentlyVisibleState = <Api makeApiCall = {this.handleMakingApiCall} />
+        } else {
+            currentlyVisibleState = <FirestoreFunctional makeApiCall = {this.handleMakingApiCall} propsFromClass = {this.state.anArray} addArrayToFirestore = {this.handleAddingArrayToFirestore}/>
+        }
 
         return (
             <React.Fragment>
@@ -54,7 +59,6 @@ class FirestoreClass extends React.Component {
             </React.Fragment>
         )
     }
-
 }
 
 export default withFirestore(FirestoreClass);

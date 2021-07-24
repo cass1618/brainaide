@@ -14,17 +14,17 @@ function FirestoreFunctional(props) {
     function addTicketToFirestore(e) { 
         e.preventDefault();
         //Might be a problem with async
-        props.makeApiCall();
+        // props.makeApiCall();
         //Must wait till after the call is finished
         props.addArrayToFirestore();
 
-    return firestore.collection("htmlFiles").add(
-        {
-            url: url,
-            fullText: fullText,
-            timeOpen: firestore.FieldValue.serverTimestamp()
-        }
-    );
+        return firestore.collection("htmlFiles").add(
+            {
+                url: url,
+                html: fullText,
+                timeOpen: firestore.FieldValue.serverTimestamp()
+            }
+        );
     }
 
         

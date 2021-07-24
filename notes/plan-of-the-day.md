@@ -3,6 +3,20 @@
 </style>
 
 
+
+FRIDAY JULY 23
+
+I currently have one function to send data to firestore, and another that will make the API call
+
+They are both in the same Functional Component and I am currently calling them in the same place in the Class Component
+
+Is it possible to duplicate what I have, but split the firestore and apiCall functions into separate components
+
+That way I could call them separately, and not call the firestore until the file is loaded
+
+
+
+
 THURSDAY JULY 22
 1. Currently able to make the API call and store the result in firestore
 * HOWEVER it doesn't wait until the API call is finished so I have to figure out how to do async and what not
