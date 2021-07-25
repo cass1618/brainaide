@@ -3,7 +3,11 @@
 </style>
 
 
+SATURDAY JULY 24
 
+1. Set up page to display the page similar to the original
+1. Add custom styles
+1. Divide into paragraphs and display each line
 
 
 FRIDAY JULY 23
@@ -16,9 +20,11 @@ Is it possible to duplicate what I have, but split the firestore and apiCall fun
 
 That way I could call them separately, and not call the firestore until the file is loaded
 
-I WORKED!  I have 2 different buttons right now - I'd rather just have the API call and then the next function would run right away, but, I think I'll try to figure that out later
+IT WORKED!  I have 2 different buttons right now - I'd rather just have the API call and then the next function would run right away, but, I think I'll try to figure that out later
 
+<div class="done">
 1. I still have to figure out how to pass the url as an argument into the API function rather than hard coding it . .
+</div>
 
 
 
