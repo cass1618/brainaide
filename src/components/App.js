@@ -1,14 +1,14 @@
 import React from "react";
 import Header from "./Header";
 // import AppControl from "./AppControl";
-// import UrlLoader from "./UrlLoader";
-import UploadFile from "./UploadFile";
+// import UploadFile from "./UploadFile";
+import FileList from "./FileList";
 
 function App() {
   return (
     <React.Fragment>
       <Header/>
-      <UploadFile/>
+      <FileList/>
     </React.Fragment>
   );
 }

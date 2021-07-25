@@ -5,16 +5,18 @@ function HtmlFile(props) {
 
     return (
         <React.Fragment>
-            <h2>{props.url}</h2>
-            <h2>{props.fullText}</h2>
+            <div onClick = {() => props.whenUrlClicked(props.id)}>
+                <h3>{props.url}</h3>
+                <h3>{props.html}</h3>
+            </div>
         </React.Fragment>
     );
 }
 
 HtmlFile.propTypes = {
-    url: PropTypes.string,
-    fullText: PropTypes.string,
-    id: PropTypes.string
+    url: PropTypes.string.isRequired,
+    html: PropTypes.string,
+    whenUrlClicked: PropTypes.func
 }
 
 export default HtmlFile;

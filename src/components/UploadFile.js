@@ -49,7 +49,6 @@ class UploadFile extends React.Component {
 
         return (
             <React.Fragment>
-                <div>return from Class</div>
             {currentlyVisibleState}
             </React.Fragment>
         )
