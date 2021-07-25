@@ -4,7 +4,7 @@ import UploadToFirestore from "./UploadToFirestore";
 import Api from "./Api";
 import request from "request-promise";
 
-class UploadFile extends React.Component {
+class ApiFirestoreControl extends React.Component {
 
     constructor(props) {
         super(props);
@@ -55,4 +55,4 @@ class UploadFile extends React.Component {
     }
 }
 
-export default withFirestore(UploadFile);
+export default withFirestore(ApiFirestoreControl);

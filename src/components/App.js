@@ -1,7 +1,7 @@
 import React from "react";
 import Header from "./Header";
 // import AppControl from "./AppControl";
-// import UploadFile from "./UploadFile";
+// import ApiFirestoreControl from "./ApiFirestoreControl";
 import FileList from "./FileList";
 
 function App() {
