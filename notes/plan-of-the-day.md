@@ -2,7 +2,23 @@
 .done {text-decoration: line-through;}
 </style>
 
+TUESDAY JULY 27
+1. Figure out how to style different elements differently
+1. Possibly use the html-to-react parser and a loop to make different paragraphs different
 
+1. Separate into paragraphs and use the arrow keys to scroll through each component
+
+
+
+
+
+
+
+
+
+
+
+<div class="done">
 MONDAY JULY 26
 1. Apply style dynamically when button is pressed
 
@@ -10,6 +26,7 @@ Will need to add a button to the functional component
 Add a new currentlyVisibleState which has the new style applied
 
 I will see if I can use a separate sheet so I can have a complex style
+</div>
 
 
 SATURDAY JULY 24
@@ -17,7 +34,7 @@ SATURDAY JULY 24
 <div class="done">
 1. Set up page to display the page similar to the original
 1. Add custom styles
-<div>
+</div>
 1. Divide into paragraphs and display each line
 
 

@@ -11,81 +11,40 @@ function FileDisplay(props) {
     let body = "body-default";
 
 
-
-
 var ReactDOMServer = require('react-dom/server');
 var HtmlToReact = require('html-to-react');
 var HtmlToReactParser = require('html-to-react').Parser;
- 
+
 var htmlInput = htmlFile.html;
 
- 
+
 var isValidNode = function () {
   return true;
 };
- 
+
 // Order matters. Instructions are processed in the order they're defined
 var processNodeDefinitions = new HtmlToReact.ProcessNodeDefinitions(React);
 var processingInstructions = [
-  {
+    {
     // Custom <h1> processing
-    shouldProcessNode: function (node) {
-      return node.parent && node.parent.name && node.parent.name === 'table';
+        shouldProcessNode: function (node) {
+          return node.parent && node.parent.name && node.parent.name === 'table';
+        },
+        processNode: function (node, children) {
+          return null;
+        }
     },
-    processNode: function (node, children) {
-      return null;
-    }
-  },
-  {
-    // Anything else
-    shouldProcessNode: function (node) {
-      return true;
-    },
+    {
+        // Anything else
+        shouldProcessNode: function (node) {
+          return true;
+        },
     processNode: processNodeDefinitions.processDefaultNode
-  }
+    }
 ];
 var htmlToReactParser = new HtmlToReactParser();
-var reactComponent = htmlToReactParser.parseWithInstructions(htmlInput, isValidNode,
-  processingInstructions);
+var reactComponent = htmlToReactParser.parseWithInstructions(htmlInput, isValidNode, processingInstructions);
 var reactHtml = ReactDOMServer.renderToStaticMarkup(reactComponent);
-
-
-
-    // const ReactDOMServer = require('react-dom/server');
-    // const HtmlToReact = require('html-to-react').Parser;
-
-    // const validNode = function() {
-    //     return true;
-    // }
-
-    // var processNodeDefinitions = new HtmlToReact.ProcessNodeDefinitions(React);
-    // const processingInstructions = [
-    //     {
-    //         replaceChildren: true,
-    //         shouldProcessNode: function(node) {
-    //             return node.parent && node.parent.name && node.parent.name === "tbody";
-    //         },
-    //         processNode: function (node, children) {
-    //             return node.data.toUpperCase();
-    //         }
-    //     },
-    //     {
-    //         shouldProcessNode: function(node) {
-    //             return true;
-    //         },
-    //         processNode: processNodeDefinitions.processDefaultNode,
-    //     }
-    // ];
-
-    // const htmlInput = '<div><h1>Title</h1><p>A paragraph</p></div>';
-    // const htmlInput = htmlFile.html;
-    // const htmlToReact = new HtmlToReact();
-    // const reactElement = htmlToReact.parseWithInstructions(htmlInput, validNode, processingInstructions);
-    // const reactHtml = ReactDOMServer.renderToStaticMarkup(reactElement);
-
-    console.log(reactHtml)
-
-    
 
 
     if(reactHtml.includes("<body>")) {
@@ -97,7 +56,24 @@ var reactHtml = ReactDOMServer.renderToStaticMarkup(reactComponent);
         // body = "<title>" + array[1]
         body = array[1]
     }
-    console.log(body);
+
+    const parArray = body.split("<p>")
+    console.log(parArray)
+
+    let count = 0;
+
+    // const newParArray = parArray.forEach(element => {
+    //   count++;
+    //   return "<p className=par"+count+">" +element;
+    // })
+
+    let newParArray;
+
+    for(let i = 0; i < parArray.length; i++) {
+        console.log('<p className="par'+i+'">'+parArray[i-1]);
+    }
+
+    console.log(newParArray);
 
     return (
         <React.Fragment>

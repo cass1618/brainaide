@@ -44,8 +44,6 @@ class AppControl extends React.Component {
 
         let currentlyVisibleState = null;
 
-        console.log("RENDER FIRST CONSOLE LOG "+this.state.selectedFile+ "selected style: "+this.state.selectedStyle)
-
         if(this.state.selectedStyle === "code") {
             console.log("code if")
         currentlyVisibleState = 
