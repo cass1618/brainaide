@@ -180,3 +180,6 @@ index.js:1451 Warning: validateDOMNesting(...): Whitespace text nodes cannot app
 ## Side error
 * did not recognize type of html-to-react
 => Added types/index.d.ts and added types to tsconfig.json
+
+=> Added parser to FileDisplay and removed table nodes
+No noted side effects
