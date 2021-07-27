@@ -20,31 +20,46 @@ font-family: 'Yanone Kaffeesatz', sans-serif;
 font-family: 'Zen Tokyo Zoo', cursive; */
 
 body {
-    /* background-color: #282C35;
-    color: whitesmoke */
+    background-color: whitesmoke;
+}
+
+.filename {
+    background-color: grey;
+    color: blue;
+    font-family:monospace;
+    font-size: 5vh
+}
+
+.pln {
+    color: lightskyblue;
+    border: 1px magenta
 }
 
 .par1 {
     font-size: 4vh;
     font-family: 'Amatic SC', cursive;
+    background-color: thistle;
     color: #4B0082
 } 
 
 .par2 {
     font-size: 4vh;
     font-family: 'Architects Daughter', cursive;
+    background-color: purple;
     color: #228B22
 } 
 
 .par3 {
     font-size: 4vh;
     font-family: 'Caveat', cursive;
+    background-color: darkblue;
     color: #DA70D6
 } 
 
 .par4 {
     font-size: 4vh;
     font-family: 'Dancing Script', cursive;
+    background-color: darkgreen;
     color: 	#00FFFF
 } 
 

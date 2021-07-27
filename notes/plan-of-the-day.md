@@ -9,8 +9,7 @@ TUESDAY JULY 27
 1. Separate into paragraphs and use the arrow keys to scroll through each component
 
 
-
-
+* I was trying to format the <code> blocks but they were all separate.  But then I realized there is a <pre> tag enclosing the entire section of code
 
 
 
