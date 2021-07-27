@@ -19,12 +19,132 @@ font-family: 'Titillium Web', sans-serif;
 font-family: 'Yanone Kaffeesatz', sans-serif;
 font-family: 'Zen Tokyo Zoo', cursive; */
 
-/* body {
-    background-color: #282C35;
+body {
+    /* background-color: #282C35;
+    color: whitesmoke */
 }
 
-p {
-    font-family: 'Source Code Pro', monospace;
-    color: #A789FD
-} */
+.par1 {
+    font-size: 4vh;
+    font-family: 'Amatic SC', cursive;
+    color: #4B0082
+} 
 
+.par2 {
+    font-size: 4vh;
+    font-family: 'Architects Daughter', cursive;
+    color: #228B22
+} 
+
+.par3 {
+    font-size: 4vh;
+    font-family: 'Caveat', cursive;
+    color: #DA70D6
+} 
+
+.par4 {
+    font-size: 4vh;
+    font-family: 'Dancing Script', cursive;
+    color: 	#00FFFF
+} 
+
+.par5 {
+    font-size: 4vh;
+    font-family: 'David Libre', serif;
+    color: #708090
+} 
+
+.par6 {
+    font-size: 4vh;
+    font-family: 'Fredoka One', cursive;
+    color: #A789FD
+} 
+
+.par7 {
+    font-size: 4vh;
+    font-family: 'Inconsolata', monospace;
+    color: #800000
+} 
+
+.par8 {
+    font-size: 4vh;
+    font-family: 'Indie Flower', cursive;
+    color: #008B8B
+} 
+
+.par9 {
+    font-size: 4vh;
+    font-family: 'Josefin Sans', sans-serif;
+    color: #A789FD
+} 
+
+.par10 {
+    font-size: 4vh;
+    font-family: 'Lobster', cursive;
+    color: #808000
+} 
+
+.par11 {
+    font-size: 4vh;
+    font-family: 'Open Sans', sans-serif;
+    color: #ADFF2F
+} 
+
+.par12 {
+    font-size: 4vh;
+    font-family: 'Otomanopee One', sans-serif;
+    color: #8B008B
+} 
+
+.par13 {
+    font-size: 4vh;
+    font-family: 'Pacifico', cursive;
+    color: #FF00FF
+} 
+.par14 {
+    font-size: 4vh;
+    font-family: 'Pirata One', cursive;
+    color: #FFD700
+} 
+
+.par15 {
+    font-size: 4vh;
+    font-family: 'Righteous', cursive;
+    color: #FF4500
+} 
+
+.par16 {
+    font-size: 4vh;
+    font-family: 'Satisfy', cursive;
+    color: #FF69B4
+} 
+
+.par17 {
+    font-size: 4vh;
+    font-family: 'Source Code Pro', monospace;
+    color: #B22222
+} 
+
+.par18 {
+    font-size: 4vh;
+    font-family: 'Titillium Web', sans-serif;
+    color: #FF8C00
+} 
+
+.par19 {
+    font-size: 4vh;
+    font-family: 'Yanone Kaffeesatz', sans-serif;
+    color: #BA55D3
+} 
+
+.par20 {
+    font-size: 4vh;
+    font-family: 'Zen Tokyo Zoo', cursive;
+    color: #663399
+}
+
+pre {
+    background-color: #282C35;
+    color: whitesmoke;
+    border: 1px solid white
+}

@@ -60,27 +60,25 @@ var reactHtml = ReactDOMServer.renderToStaticMarkup(reactComponent);
     const parArray = body.split("<p>")
     console.log(parArray)
 
-    let count = 0;
-
     // const newParArray = parArray.forEach(element => {
     //   count++;
     //   return "<p className=par"+count+">" +element;
     // })
 
-    let newParArray;
+    let parClassString ="";
 
     for(let i = 0; i < parArray.length; i++) {
-        console.log('<p className="par'+i+'">'+parArray[i-1]);
+        parClassString = parClassString.concat('<p class="par'+(i % 20)+'">'+parArray[i-1]);
     }
 
-    console.log(newParArray);
+    console.log(parClassString);
 
     return (
         <React.Fragment>
             <div>
                 <h1>FILE DISPLAY</h1>
-                <Markup content={body}/>
-                {body}
+                <Markup content={parClassString}/>
+                {parClassString}
             </div>
         </React.Fragment>
     );
