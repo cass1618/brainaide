@@ -23,7 +23,7 @@ class ApiFirestoreControl extends React.Component {
         console.log("handleMakingApiCall");
 
         request(`http://api.scraperapi.com?api_key=${process.env.REACT_APP_API_KEY}&url=${url}&render=true&autoparse=true&country_code=us`)
-        // .then(response => console.log(response))
+
         .then(response => {
             this.setState({
                 isLoaded: true,
