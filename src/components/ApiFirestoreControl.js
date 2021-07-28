@@ -21,7 +21,7 @@ class ApiFirestoreControl extends React.Component {
 
     handleMakingApiCall = (url) => {
 
-        request(`http://api.scraperapi.com?api_key=${process.env.REACT_APP_API_KEY}&url=${url}&render=true&autoparse=true&country_code=us`)
+        request(`https://api.scraperapi.com?api_key=${process.env.REACT_APP_API_KEY}&url=${url}&render=true&autoparse=true&country_code=us`)
 
         .then(response => {
             this.setState({
