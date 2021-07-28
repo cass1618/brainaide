@@ -1,21 +1,19 @@
 import React from "react";
 import FileDisplay from "./FileDisplay";
 import FileList from "./FileList";
-import HtmlFile from "./HtmlFile";
-import {connect} from "react-redux";
 import {withFirestore} from "react-redux-firebase";
-import PropTypes from "prop-types";
 import styles from "./../styles/code.module.css";
-import SeparateParagraphs from "./SeparateParagraphs";
+import Paragraph from "./Paragraph";
 
 class AppControl extends React.Component {
 
     constructor(props) {
         super(props);
+        this.handleKeyDown = this.handleKeyDown.bind(this);
         this.state = {
             selectedFile: null,
             selectedStyle: null,
-            selectedSection: "not null",
+            selectedSection: null,
             result: []
         }
     }
@@ -30,23 +28,25 @@ class AppControl extends React.Component {
                 const file = {
                     url: htmlFile.get("url"),
                     html: htmlFile.get("html"),
+                    parArray: htmlFile.get("parArray"),
                     id: htmlFile.id
                 }
 
-                this.setState({selectedFile: file});
+                this.setState({selectedFile: file, selectedSection: file.parArray[0]});
             });
     }
 
-    handleKeyDown(e) {
-        const {selectedSection, result} = this.state
+    handleKeyDown = (e) => {
+        console.log("KEY DOWN!  selectedSection: "+this.state.selectedSection)
+        const {selectedSection, result, parArray} = this.state
         // arrow up/down button should select next/previous list element
-        if (e.keyCode === 38 && selectedSection > 0) {
+        if (e.keyCode === 125 && selectedSection > 0) {
             this.setState( prevState => ({
-            selectedSection: prevState.selectedSection - 1
+            selectedSection: parArray[prevState.selectedSection - 1]
             }))
-        } else if (e.keyCode === 40 && selectedSection < result.length - 1) {
+        } else if (e.keyCode === 126 && selectedSection < result.length - 1) {
             this.setState( prevState => ({
-            selectedSection: prevState.selectedSection + 1
+            selectedSection: parArray[prevState.selectedSection + 1]
             }))
         }
     }
@@ -61,13 +61,15 @@ class AppControl extends React.Component {
 
         let currentlyVisibleState = null;
         console.log("SELECTED FILE: "+this.state.selectedFile)
+        console.log("SELECTED SECTioN: "+this.state.selectedSection)
         if (this.state.selectedFile === null) {
             currentlyVisibleState =
             <FileList onSelectingFile = {this.handleSelectingFile}/>
         
 
     } else if(this.state.selectedSection !== null) {
-            currentlyVisibleState = <SeparateParagraphs htmlFile = {this.state.selectedFile} section = {this.state.selectedSection} onKeyDown = {this.handleKeyDown}/>
+        document.addEventListener("keydown", this.onKeyDown, false);
+            currentlyVisibleState = <div><Paragraph section = {this.state.selectedSection} onKeyDown = {this.handleKeyDown}/></div>
         }
 
         else if(this.state.selectedStyle === "code") {

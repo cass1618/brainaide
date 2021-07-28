@@ -3,10 +3,16 @@
 </style>
 
 TUESDAY JULY 27
+<div class="done">
 1. Figure out how to style different elements differently
 1. Possibly use the html-to-react parser and a loop to make different paragraphs different
+</div>
 
 1. Separate into paragraphs and use the arrow keys to scroll through each component
+
+<div class="done">
+* Separate into paragraphs and upload array of paragraphs to firestore
+</div>
 
 
 * I was trying to format the <code> blocks but they were all separate.  But then I realized there is a <pre> tag enclosing the entire section of code

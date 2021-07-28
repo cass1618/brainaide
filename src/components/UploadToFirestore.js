@@ -22,7 +22,7 @@ function UploadToFirestore(props) {
     
     
     var isValidNode = function () {
-      return true;
+        return true;
     };
     
     // Order matters. Instructions are processed in the order they're defined
@@ -50,7 +50,7 @@ function UploadToFirestore(props) {
     
     
         if(reactHtml.includes("<body>")) {
-        body = reactHtml.split("<body>")[1]
+            body = reactHtml.split("<body>")[1]
     
         } else {
             const array = reactHtml.split("<title>")
@@ -60,7 +60,7 @@ function UploadToFirestore(props) {
         const array = body.split("<p>");
         let parArray = [];
         for(let i = 1; i<array.length; i++) {
-            parArray.push("<p>" + array[i].split("</p>") + "</p>");
+            parArray.push("" + array[i].split("</p>") + "");
         }
     
         // for(let i =0; i<parArray.length; i++) {
