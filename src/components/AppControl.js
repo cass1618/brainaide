@@ -14,6 +14,8 @@ class AppControl extends React.Component {
             selectedFile: null,
             selectedStyle: null,
             selectedSection: null,
+            parArray: null,
+            parNumber: null,
             result: []
         }
     }
@@ -32,22 +34,35 @@ class AppControl extends React.Component {
                     id: htmlFile.id
                 }
 
-                this.setState({selectedFile: file, selectedSection: file.parArray[0]});
+                this.setState({selectedFile: file, selectedSection: file.parArray[0], parArray: file.parArray, parNumber: 0});
             });
     }
 
     handleKeyDown = (e) => {
         console.log("KEY DOWN!  selectedSection: "+this.state.selectedSection)
-        const {selectedSection, result, parArray} = this.state
+        console.log(e.keyCode)
+        const {selectedSection, parNumber, parArray} = this.state
+        console.log("parNumber "+parNumber)
         // arrow up/down button should select next/previous list element
-        if (e.keyCode === 125 && selectedSection > 0) {
-            this.setState( prevState => ({
-            selectedSection: parArray[prevState.selectedSection - 1]
-            }))
-        } else if (e.keyCode === 126 && selectedSection < result.length - 1) {
-            this.setState( prevState => ({
-            selectedSection: parArray[prevState.selectedSection + 1]
-            }))
+        if (e.keyCode === 38
+            //  && selectedSection > 0
+            ) {
+            console.log("UP")
+            const newParNumber = parNumber +1;
+            this.setState({parNumber: newParNumber,
+            selectedSection: parArray[parNumber]
+            })
+        } else if (e.keyCode === 40
+            //  && selectedSection < result.length - 1
+            ) {
+            console.log("DOWN")
+            
+            console.log(selectedSection)
+            console.log(parArray)
+            const newParNumber = parNumber - 1;
+            this.setState({parNumber: newParNumber,
+            selectedSection: parArray[parNumber]
+            })
         }
     }
 
@@ -68,7 +83,7 @@ class AppControl extends React.Component {
         
 
     } else if(this.state.selectedSection !== null) {
-        document.addEventListener("keydown", this.onKeyDown, false);
+        document.addEventListener("keydown", this.handleKeyDown, false);
             currentlyVisibleState = <div><Paragraph section = {this.state.selectedSection} onKeyDown = {this.handleKeyDown}/></div>
         }
 

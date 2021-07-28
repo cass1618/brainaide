@@ -1,15 +1,18 @@
 import React from "react";
 import PropTypes from "prop-types";
 import "./../styles/Paragraph.css";
+import {Markup} from "interweave";
 
 function Paragraph(props) {
 
     return (
+        
+
         <React.Fragment>
             <div className = "wrapper">
                 <div onKeyDown = {() => props.onKeyDown(props.id)}>
-                    <h3>{props.url}</h3>
-                    <h3>{props.section}</h3>
+                <Markup content={"<p>"+props.section+"</p>"}/>
+                    {/* <h3>{"<p>"+props.section+"</p>"}</h3> */}
                 </div>
             </div>
         </React.Fragment>
