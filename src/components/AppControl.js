@@ -44,7 +44,7 @@ class AppControl extends React.Component {
         const {selectedSection, parNumber, parArray} = this.state
         console.log("parNumber "+parNumber)
         // arrow up/down button should select next/previous list element
-        if (e.keyCode === 38
+        if (e.keyCode === 38 && parNumber < parArray.length
             //  && selectedSection > 0
             ) {
             console.log("UP")
@@ -52,7 +52,7 @@ class AppControl extends React.Component {
             this.setState({parNumber: newParNumber,
             selectedSection: parArray[parNumber]
             })
-        } else if (e.keyCode === 40
+        } else if (e.keyCode === 40 && parNumber >0
             //  && selectedSection < result.length - 1
             ) {
             console.log("DOWN")

@@ -9,7 +9,7 @@ function UploadToFirestore(props) {
     const fullText = props.propsFromClass[1];
 
     
-    function SeparateParagraphs(file) {
+    function SeparateParagraphs() {
 
         let body = "body-default";
     
