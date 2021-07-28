@@ -8,16 +8,87 @@ function UploadToFirestore(props) {
     const url = props.propsFromClass[0];
     const fullText = props.propsFromClass[1];
 
+    
+    function SeparateParagraphs(file) {
+
+        let body = "body-default";
+    
+    
+    var ReactDOMServer = require('react-dom/server');
+    var HtmlToReact = require('html-to-react');
+    var HtmlToReactParser = require('html-to-react').Parser;
+    
+    var htmlInput = fullText;
+    
+    
+    var isValidNode = function () {
+      return true;
+    };
+    
+    // Order matters. Instructions are processed in the order they're defined
+    var processNodeDefinitions = new HtmlToReact.ProcessNodeDefinitions(React);
+    var processingInstructions = [
+        {
+            shouldProcessNode: function (node) {
+                return node.parent && node.parent.name && node.parent.name === 'table';
+            },
+            processNode: function (node, children) {
+                return null;
+            }
+        },
+        {
+            // Anything else
+            shouldProcessNode: function (node) {
+                return true;
+            },
+        processNode: processNodeDefinitions.processDefaultNode
+        }
+    ];
+    var htmlToReactParser = new HtmlToReactParser();
+    var reactComponent = htmlToReactParser.parseWithInstructions(htmlInput, isValidNode, processingInstructions);
+    var reactHtml = ReactDOMServer.renderToStaticMarkup(reactComponent);
+    
+    
+        if(reactHtml.includes("<body>")) {
+        body = reactHtml.split("<body>")[1]
+    
+        } else {
+            const array = reactHtml.split("<title>")
+            body = array[1]
+        }
+    
+        const array = body.split("<p>");
+        let parArray = [];
+        for(let i = 1; i<array.length; i++) {
+            parArray.push("<p>" + array[i].split("</p>") + "</p>");
+        }
+    
+        // for(let i =0; i<parArray.length; i++) {
+        // console.log("parArray["+i+"]: "+parArray[i])
+        // }
+    
+        // let parString = "<p>" + parArray[5] + "</p>"
+        // console.log("PAR STRING IS: "+parString)
+
+        return parArray;
+    }
+    
+    
+    
+    
     function addFileToFirestore(e) { 
         
         e.preventDefault();
 
         props.addArrayToFirestore();
 
+        const parArray = SeparateParagraphs(fullText);
+
         return firestore.collection("htmlFiles").add(
             {
                 url: url,
                 html: fullText,
+                parArray: parArray,
                 timeOpen: firestore.FieldValue.serverTimestamp()
             }
         );

@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import {Markup} from "interweave";
 import "./../styles/SeparateParagraphs.css";
 
-function FileDisplay(props) {
+function SeparateParagraphs(props) {
 
     console.log("SEPARATE PARS VISIBLE")
     
@@ -27,16 +27,16 @@ var processNodeDefinitions = new HtmlToReact.ProcessNodeDefinitions(React);
 var processingInstructions = [
     {
         shouldProcessNode: function (node) {
-          return node.parent && node.parent.name && node.parent.name === 'table';
+            return node.parent && node.parent.name && node.parent.name === 'table';
         },
         processNode: function (node, children) {
-          return null;
+            return null;
         }
     },
     {
         // Anything else
         shouldProcessNode: function (node) {
-          return true;
+            return true;
         },
     processNode: processNodeDefinitions.processDefaultNode
     }
@@ -48,32 +48,40 @@ var reactHtml = ReactDOMServer.renderToStaticMarkup(reactComponent);
 
     if(reactHtml.includes("<body>")) {
     body = reactHtml.split("<body>")[1]
-    console.log("split at body")
+
     } else {
         const array = reactHtml.split("<title>")
-        console.log("split at title.  array[0]="+array[0])
-        // body = "<title>" + array[1]
         body = array[1]
     }
 
     const array = body.split("<p>");
-    const parArray = array.split("</p>");
+    let parArray = [];
+    for(let i = 1; i<array.length; i++) {
+        parArray.push("<p>" + array[i].split("</p>") + "</p>");
+    }
 
-   
+    for(let i =0; i<parArray.length; i++) {
+    console.log("parArray["+i+"]: "+parArray[i])
+    }
+
+    let parString = "<p>" + parArray[5] + "</p>"
+    console.log("PAR STRING IS: "+parString)
 
     return (
-        <React.Fragment>
-            <div>
-                <h1>SEPARATE PARS DISPLAY</h1>
-                <Markup content={parClassString}/>
-                {parClassString}
-            </div>
-        </React.Fragment>
+        {parArray}
+        // <React.Fragment>
+        //     <div>
+        //         <h1>SEPARATE PARS DISPLAY</h1>
+        //         <Markup content={parString}/>
+        //         {/* {this.state.selectedSection} */}
+        //     </div>
+        // </React.Fragment>
     );
 }
 
-FileDisplay.propTypes = {
-    htmlFile: PropTypes.object
+SeparateParagraphs.propTypes = {
+    htmlFile: PropTypes.object,
+    selectedSection: PropTypes.string
 }
 
-export default FileDisplay;
+export default SeparateParagraphs;

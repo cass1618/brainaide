@@ -49,10 +49,10 @@ var reactHtml = ReactDOMServer.renderToStaticMarkup(reactComponent);
 
     if(reactHtml.includes("<body>")) {
     body = reactHtml.split("<body>")[1]
-    console.log("split at body")
+
     } else {
         const array = reactHtml.split("<title>")
-        console.log("split at title.  array[0]="+array[0])
+
         // body = "<title>" + array[1]
         body = array[1]
     }
@@ -70,8 +70,6 @@ var reactHtml = ReactDOMServer.renderToStaticMarkup(reactComponent);
     for(let i = 0; i < parArray.length; i++) {
         parClassString = parClassString.concat('<p class="par'+(i % 20)+'">'+parArray[i-1]);
     }
-
-    console.log(parClassString);
 
     return (
         <React.Fragment>
