@@ -4,7 +4,6 @@ import {useFirestore} from "react-redux-firebase"
 function UploadToFirestore(props) {
 
     const firestore = useFirestore();
-
     const url = props.propsFromClass[0];
     const fullText = props.propsFromClass[1];
 
@@ -25,7 +24,6 @@ function UploadToFirestore(props) {
         return true;
     };
     
-    // Order matters. Instructions are processed in the order they're defined
     var processNodeDefinitions = new HtmlToReact.ProcessNodeDefinitions(React);
     var processingInstructions = [
         {
@@ -37,7 +35,6 @@ function UploadToFirestore(props) {
             }
         },
         {
-            // Anything else
             shouldProcessNode: function (node) {
                 return true;
             },
@@ -62,19 +59,9 @@ function UploadToFirestore(props) {
         for(let i = 1; i<array.length; i++) {
             parArray.push("" + array[i].split("</p>") + "");
         }
-    
-        // for(let i =0; i<parArray.length; i++) {
-        // console.log("parArray["+i+"]: "+parArray[i])
-        // }
-    
-        // let parString = "<p>" + parArray[5] + "</p>"
-        // console.log("PAR STRING IS: "+parString)
 
         return parArray;
     }
-    
-    
-    
     
     function addFileToFirestore(e) { 
         

@@ -21,7 +21,6 @@ class AppControl extends React.Component {
     }
 
     handleSelectingFile = (id) => {
-        console.log("handleSelectingFile")
 
         this.props.firestore.get({collection: "htmlFiles", doc: id})
 
@@ -39,26 +38,16 @@ class AppControl extends React.Component {
     }
 
     handleKeyDown = (e) => {
-        console.log("KEY DOWN!  selectedSection: "+this.state.selectedSection)
-        console.log(e.keyCode)
-        const {selectedSection, parNumber, parArray} = this.state
-        console.log("parNumber "+parNumber)
-        // arrow up/down button should select next/previous list element
-        if (e.keyCode === 38 && parNumber < parArray.length
-            //  && selectedSection > 0
-            ) {
-            console.log("UP")
+
+        const {parNumber, parArray} = this.state
+
+        if (e.keyCode === 40 && parNumber < parArray.length) {
             const newParNumber = parNumber +1;
             this.setState({parNumber: newParNumber,
             selectedSection: parArray[parNumber]
             })
-        } else if (e.keyCode === 40 && parNumber >0
-            //  && selectedSection < result.length - 1
-            ) {
-            console.log("DOWN")
-            
-            console.log(selectedSection)
-            console.log(parArray)
+
+        } else if (e.keyCode === 38 && parNumber >0) {
             const newParNumber = parNumber - 1;
             this.setState({parNumber: newParNumber,
             selectedSection: parArray[parNumber]
@@ -67,16 +56,12 @@ class AppControl extends React.Component {
     }
 
     handleClickingCode = () => {
-        console.log("handleClickingCode")
-
         this.setState({selectedStyle: "code"});
     }
 
     render() {
 
         let currentlyVisibleState = null;
-        console.log("SELECTED FILE: "+this.state.selectedFile)
-        console.log("SELECTED SECTioN: "+this.state.selectedSection)
         if (this.state.selectedFile === null) {
             currentlyVisibleState =
             <FileList onSelectingFile = {this.handleSelectingFile}/>
@@ -101,7 +86,6 @@ class AppControl extends React.Component {
     
         return (
             <React.Fragment>
-                {console.log("selectedFile "+this.state.selectedFile)}
                 {<button onClick = {this.handleClickingCode}>code</button>}
                 {currentlyVisibleState}
             </React.Fragment>

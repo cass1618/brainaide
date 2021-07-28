@@ -12,7 +12,6 @@ function FileList(props) {
     ])
 
     const htmlFiles = useSelector(state => state.firestore.ordered.htmlFiles);
-    console.log(htmlFiles)
 
     if(isLoaded(htmlFiles)) {
         return (

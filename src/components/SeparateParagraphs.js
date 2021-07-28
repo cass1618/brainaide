@@ -5,11 +5,8 @@ import "./../styles/SeparateParagraphs.css";
 
 function SeparateParagraphs(props) {
 
-    console.log("SEPARATE PARS VISIBLE")
-    
     const {htmlFile} = props;
     let body = "body-default";
-
 
 var ReactDOMServer = require('react-dom/server');
 var HtmlToReact = require('html-to-react');
@@ -61,21 +58,11 @@ var reactHtml = ReactDOMServer.renderToStaticMarkup(reactComponent);
     }
 
     for(let i =0; i<parArray.length; i++) {
-    console.log("parArray["+i+"]: "+parArray[i])
-    }
 
-    let parString = "<p>" + parArray[5] + "</p>"
-    console.log("PAR STRING IS: "+parString)
+    }
 
     return (
         {parArray}
-        // <React.Fragment>
-        //     <div>
-        //         <h1>SEPARATE PARS DISPLAY</h1>
-        //         <Markup content={parString}/>
-        //         {/* {this.state.selectedSection} */}
-        //     </div>
-        // </React.Fragment>
     );
 }
 

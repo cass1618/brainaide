@@ -16,11 +16,10 @@ class ApiFirestoreControl extends React.Component {
     }
 
     handleAddingArrayToFirestore = () => {
-        console.log("handleAddingArrayToFirestore");
+
     }
 
     handleMakingApiCall = (url) => {
-        console.log("handleMakingApiCall");
 
         request(`http://api.scraperapi.com?api_key=${process.env.REACT_APP_API_KEY}&url=${url}&render=true&autoparse=true&country_code=us`)
 
@@ -37,13 +36,11 @@ class ApiFirestoreControl extends React.Component {
 
     render() {
         let currentlyVisibleState = null;
-        console.log("this.state.isLoaded "+this.state.isLoaded)
 
         if(!this.state.isLoaded) {
             currentlyVisibleState = <Api makeApiCall = {this.handleMakingApiCall} />
 
         } else {
-            console.log(this.state.anArray)
             currentlyVisibleState = <UploadToFirestore makeApiCall = {this.handleMakingApiCall} propsFromClass = {this.state.anArray} addArrayToFirestore = {this.handleAddingArrayToFirestore}/>
         }
 

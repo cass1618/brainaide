@@ -5,8 +5,6 @@ import "./../styles/FileDisplay.css";
 
 function FileDisplay(props) {
 
-    console.log("FILE DISPLAY VISIBLE")
-    
     const {htmlFile} = props;
     let body = "body-default";
 
@@ -52,18 +50,10 @@ var reactHtml = ReactDOMServer.renderToStaticMarkup(reactComponent);
 
     } else {
         const array = reactHtml.split("<title>")
-
-        // body = "<title>" + array[1]
         body = array[1]
     }
 
     const parArray = body.split("<p>")
-    console.log(parArray)
-
-    // const newParArray = parArray.forEach(element => {
-    //   count++;
-    //   return "<p className=par"+count+">" +element;
-    // })
 
     let parClassString ="";
 
