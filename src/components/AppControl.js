@@ -16,7 +16,8 @@ class AppControl extends React.Component {
             selectedSection: null,
             sectionArray: null,
             parNumber: 0,
-            randomStyle: "z"
+            randomStyle: "z",
+            splashPageVisible: true
         }
     }
 
@@ -97,26 +98,39 @@ class AppControl extends React.Component {
     render() {
 
         let currentlyVisibleState = null;
-        if (this.state.selectedFile === null) {
+
+        if(this.state.splashPageVisible) {
+            currentlyVisibleState = 
+                <div class="splash">
+                    <h2>WElCOME TO BRAINAIDE! The goal is to provide your brain with something interesting to keep it occupied so that it doesn't wander off!</h2>
+                    <h3>First upload the URL of a page you would like to read.</h3>
+                    <h3>This site is optimized for learnhowtoprogram.com but will also work with other pages you might need to read.</h3>
+                    <h3>Select the page you'd like to read from the list and then select a view!</h3>
+                </div>
+        
+        } else if(this.state.selectedFile === null) {
             currentlyVisibleState =
             <FileList onSelectingFile = {this.handleSelectingFile}/>
-        
 
-        } else if(this.state.selectedSection !== null) {
+        } else if(this.state.selectedFile !== null && this.state.selectedFile === null) {
+            currentlyVisibleState = 
+            <div>
+                <FileDisplay htmlFile = {this.state.selectedFile}/>
+                <button onClick = {this.handleClickingCode}>CODE</button>
+                <button onClick = {this.handleClickingLineByLine}>LINE-BY-LINE</button>
+            </div>
+
+        } else if(this.state.selectedSection !== null && this.state.selectedStyle === "line-by-line") {
             document.addEventListener("keydown", this.handleKeyDown, false);
             currentlyVisibleState = <div><Paragraph section = {this.state.selectedSection} randomStyle = {this.state.randomStyle} onKeyDown = {this.handleKeyDown}/></div>
         }
 
-        else if(this.state.selectedStyle === "code") {
-
+        else if(this.state.selectedSection !== null && this.state.selectedStyle === "code") {
             currentlyVisibleState = 
             <div className={styles.code}><FileDisplay htmlFile = {this.state.selectedFile}/></div>
-        } else if(this.state.selectedFile !== null) {
-            currentlyVisibleState = <FileDisplay htmlFile = {this.state.selectedFile}/>
-        }else {
 
-            currentlyVisibleState =
-            <FileList onSelectingFile = {this.handleSelectingFile}/>
+        }else {
+            currentlyVisibleState = <h1>SOMETHING WENT WRONG</h1>
         }
     
         return (
