@@ -1,40 +1,79 @@
-/* div {
+/* font-family: 'Bungee', cursive;
+font-family: 'Cinzel', serif;
+font-family: 'Fugaz One', cursive;
+font-family: 'Krona One', sans-serif;
+font-family: 'MuseoModerno', cursive;
+font-family: 'Notable', sans-serif;
+font-family: 'Permanent Marker', cursive;
+font-family: 'Ribeye Marrow', cursive;
+font-family: 'Righteous', cursive;
+font-family: 'Syncopate', sans-serif;
+font-family: 'Warnes', cursive; */
+
+.splash {
     display: flex;
     flex-wrap: wrap;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    background-color: skyblue
-} */
+    padding: 50px;
+    color: magenta
+}
+
+.wave {
+    margin-top: 3vh;
+    padding: 5vh;
+    font-family: 'Syncopate', sans-serif;
+    font-size: 18vh;
+    color: transparent;
+    font-weight: 50vh;
+    text-shadow: whitesmoke 10px 10px 5px;
+    text-align: center
+}
+
+.wave2 {
+    margin: 3vh;
+    font-family: 'Righteous', cursive;
+    font-size: 8vh;
+    color: transparent;
+    font-weight: 20vh;
+    text-shadow: whitesmoke 10px 10px 5px;
+    text-align: center
+}
 
 h1 {
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
     color:royalblue;
     justify-self: center;
-    font-size: 5vh
+    font-size: 6vh
 }
 
 p {
     font-family:monospace;
     justify-self: left;
     color: royalblue;
-    font-size: 3vh
+    font-size: 4vh
 }
 
 .note {
     font-family: monospace;
-    font-size: 2vh;
+    font-size: 3vh;
     color: teal
 }
 
 .enter {
-    background-color: orchid;
-    border: 1px solid whitesmoke;
+    cursor: pointer;
+    background-color: transparent;
+    /* box-shadow: 6px 6px purple; */
     height: 100px;
     width: 400px;
     display: flex;
     justify-content: center;
     align-items: center;
+    font-size: 6vh;
+    color: whitesmoke;
+    font-family: 'Permanent Marker', cursive;
+    padding: 10vh
 }
 
 .header {

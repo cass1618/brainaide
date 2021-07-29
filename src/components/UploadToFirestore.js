@@ -7,43 +7,41 @@ function UploadToFirestore(props) {
     const url = props.propsFromClass[0];
     const fullText = props.propsFromClass[1];
 
-    
     function SeparateSections() {
 
         let body = "body-default";
     
+        var ReactDOMServer = require('react-dom/server');
+        var HtmlToReact = require('html-to-react');
+        var HtmlToReactParser = require('html-to-react').Parser;
+        
+        var htmlInput = fullText;
+        
+        
+        var isValidNode = function () {
+            return true;
+        };
     
-    var ReactDOMServer = require('react-dom/server');
-    var HtmlToReact = require('html-to-react');
-    var HtmlToReactParser = require('html-to-react').Parser;
-    
-    var htmlInput = fullText;
-    
-    
-    var isValidNode = function () {
-        return true;
-    };
-    
-    var processNodeDefinitions = new HtmlToReact.ProcessNodeDefinitions(React);
-    var processingInstructions = [
-        {
-            shouldProcessNode: function (node) {
-                return node.parent && node.parent.name && node.parent.name === 'table';
+        var processNodeDefinitions = new HtmlToReact.ProcessNodeDefinitions(React);
+        var processingInstructions = [
+            {
+                shouldProcessNode: function (node) {
+                    return node.parent && node.parent.name && node.parent.name === 'table';
+                },
+                processNode: function (node, children) {
+                    return null;
+                }
             },
-            processNode: function (node, children) {
-                return null;
+            {
+                shouldProcessNode: function (node) {
+                    return true;
+                },
+            processNode: processNodeDefinitions.processDefaultNode
             }
-        },
-        {
-            shouldProcessNode: function (node) {
-                return true;
-            },
-        processNode: processNodeDefinitions.processDefaultNode
-        }
-    ];
-    var htmlToReactParser = new HtmlToReactParser();
-    var reactComponent = htmlToReactParser.parseWithInstructions(htmlInput, isValidNode, processingInstructions);
-    var reactHtml = ReactDOMServer.renderToStaticMarkup(reactComponent);
+        ];
+        var htmlToReactParser = new HtmlToReactParser();
+        var reactComponent = htmlToReactParser.parseWithInstructions(htmlInput, isValidNode, processingInstructions);
+        var reactHtml = ReactDOMServer.renderToStaticMarkup(reactComponent);
     
         //Extract the body of the html by splitting at starting and closing tags
         if(reactHtml.includes("<body>")) {

@@ -1,4 +1,5 @@
 import React from "react";
+import "./../styles/ApiFirestoreControl.css"
 
 function Api(props) {
 
@@ -10,13 +11,15 @@ function Api(props) {
 
     return (
         <React.Fragment>
-            <form onSubmit={makeApiCall}>
+            <form className = "afc" onSubmit={makeApiCall}>
                 <input
                     type = "url"
                     name = "url"
-                    style = {{width: "600px"}}
+                    style = {{width: "80vw", margin: "10vh"}}
                     placeholder = "Enter url"/>
-                <button type="submit">CALL API</button>
+                <button 
+                    className = "upload"
+                    type = "submit">UPLOAD FILE</button>
             </form>
         </React.Fragment>
     )

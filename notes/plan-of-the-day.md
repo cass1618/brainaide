@@ -5,11 +5,11 @@
 
 THURSDAY JULY 29
 ## Make the site look generally presentable/useable and deploy!
-    1. Update Header - maybe get a logo - UNDER CONSTRUCTION
-    2. Add general CSS to main pages
+    1. Update Header - maybe get a logo - UNDER CONSTRUCTION [x]
+    2. Add general CSS to main pages [x]
     3. Add button to return home and to add a new file
     4. Have a button to select full view or individual sections
-    5. Add a splash page
+    5. Add a splash page [x]
     6. Link to where the game came from
     7. Organize structure - put ApiFirestoreControl inside AppControl
 

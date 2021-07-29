@@ -5,6 +5,7 @@ import Api from "./Api";
 import AppControl from "./AppControl"
 import LoadingScreen from "./LoadingScreen";
 import request from "request-promise";
+import "./../styles/ApiFirestoreControl.css"
 
 class ApiFirestoreControl extends React.Component {
 
@@ -50,7 +51,7 @@ class ApiFirestoreControl extends React.Component {
         }
 
         else if(this.state.isLoaded) {
-            currentlyVisibleState = <div><UploadToFirestore propsFromClass = {this.state.anArray} addArrayToFirestore = {this.handleAddingArrayToFirestore}/><LoadingScreen/></div>
+            currentlyVisibleState = <div className = "afc"><UploadToFirestore propsFromClass = {this.state.anArray} addArrayToFirestore = {this.handleAddingArrayToFirestore}/><LoadingScreen/></div>
         }
         
         else if(this.state.isLoading) {

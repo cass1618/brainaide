@@ -4,8 +4,10 @@ import FileList from "./FileList";
 import {withFirestore} from "react-redux-firebase";
 import styles from "./../styles/code.module.css";
 import "./../styles/AppControl.css"
+import background from "./../images/splash.jpeg"
 import Paragraph from "./Paragraph";
 import ApiFirestoreControl from "./ApiFirestoreControl";
+import {Wave} from "react-animated-text";
 
 class AppControl extends React.Component {
 
@@ -117,13 +119,27 @@ class AppControl extends React.Component {
 
         if(this.state.splashPageVisible) {
             currentlyVisibleState = 
-                <div className = "splash">
-                    <h1 className = "welcome">WElCOME TO BRAINAIDE!</h1>
+                <div className = "splash" style={{backgroundImage: `url(${background})`}}>
+                    <div className = "wave">
+                        <Wave 
+                            text="WELCOME TO BRAINAIDE" 
+                            effect="pop" 
+                            effectChange={1.1618}
+                            effectDuration={1.1618}/>
+                    </div>
+                    <div className = "wave2">
+                        <Wave 
+                            text="designed to entertain your prefrontal cortex so it doesn't try to distract you or wander off" 
+                            effect="pop" 
+                            effectChange={2}
+                            effectDuration={3.1415}/>
+                    </div>
+                    {/* <h1 className = "welcome">WELCOME TO BRAINAIDE!</h1>
                     <h1>The goal is to provide your brain with something interesting to keep it occupied so that it doesn't wander off!</h1>
                     <h1 className = "note">NOTE: This app has a great deal of functionality, but a little more style work is needed for it to be truly helpful.</h1>
                     <p>First upload the URL of a page you would like to read.</p>
                     <p>This site is optimized for learnhowtoprogram.com but will also work with other pages you might need to read.</p>
-                    <p>Select the page you'd like to read from the list and then select a view!</p>
+                    <p>Select the page you'd like to read from the list and then select a view!</p> */}
                     <button className = "enter" onClick = {this.handleClickingEnter}>ENTER!</button>
                 </div>
         
@@ -133,7 +149,7 @@ class AppControl extends React.Component {
         } else if(this.state.selectedFile === null) {
             currentlyVisibleState =
             <div>
-                <button onClick = {this.handleClickingUploadFile}>UPLOAD FILE</button>
+                <button className = "upload" onClick = {this.handleClickingUploadFile}>UPLOAD FILE</button>
                 <FileList onSelectingFile = {this.handleSelectingFile}/>
             </div>
 
