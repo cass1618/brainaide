@@ -69,11 +69,6 @@ function UploadToFirestore(props) {
             parArray.push(splitOpeningPTag[i].split("</p>")[0]);
         }
         
-        for(let i =0; i<parArray.length; i++) {
-
-            console.log("Array of paragraphs["+i+"]: "+parArray[i])
-        }
-        
         //New array will contain split up elements if they are several sentences
         let sectionArray = [];
 
@@ -82,22 +77,18 @@ function UploadToFirestore(props) {
             const currentString = parArray[i];
             //start counter at 1 because most likely the last char is a period with no space after it so it won't get counted
             let numberOfSentences = 1;
-            console.log("i: "+i+"currentString: "+currentString)
     
             //iterate through each character in the ith string
             for(let j=0; j< currentString.length; j++) {
                 // console.log("j: "+j+" currentChar: "+currentString[j]);
                 //Count periods that have a space after to indicate end of sentence
                 if(currentString[j] === "." && currentString[j+1] === " ") {
-                    console.log("PERIOD");
                     numberOfSentences++;
                 }
             }
 
-            console.log("end loop. Number of Sentences is: "+numberOfSentences);
             if(numberOfSentences > 2) {
                 const splitString = currentString.split(".")
-                console.log("String has been split! [0]:"+splitString[0]+" [1]:"+splitString[1]+" [2]: "+splitString[2])
 
                 //Add each individual sentence to the section array
                 for(let i = 0; i < splitString.length; i++) {
@@ -107,13 +98,17 @@ function UploadToFirestore(props) {
                 //Push the original string if it did not get split
                 sectionArray.push(currentString)
             }
-            console.log("section array: "+sectionArray)
-        
+        }
+        //The array ends up with some empty strings so remove them
+        for(let i = 0; i < sectionArray.length; i++) {
+            if(sectionArray[i] === "" || sectionArray[i] === " ") {
+                console.log("SPLICE")
+                sectionArray.splice(i, 1)
+            }
+        }
 
-    
+        return sectionArray;
     }
-    return sectionArray;
-}
     function addFileToFirestore(e) { 
         
         e.preventDefault();
