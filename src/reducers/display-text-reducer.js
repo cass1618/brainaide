@@ -1,22 +1,22 @@
-import * as c from './../actions/ActionTypes';
+// import * as c from './../actions/ActionTypes';
 
-const displayTextReducer = (state = {}, action) => {
+// const displayTextReducer = (state = {}, action) => {
 
-    const {url, id} = action;
+//     const {url, id} = action;
 
-    switch(action.type) {
+//     switch(action.type) {
 
-        case c.LOAD_URL:
-            return Object.assign({}, state, {
-                [id]: {
-                    url: url
-                }
-            });
+//         case c.LOAD_URL:
+//             return Object.assign({}, state, {
+//                 [id]: {
+//                     url: url
+//                 }
+//             });
 
-        default:
-            return state;
+//         default:
+//             return state;
             
-    }
-}
+//     }
+// }
 
-export default displayTextReducer;
+// export default displayTextReducer;

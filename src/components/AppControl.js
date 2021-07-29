@@ -14,7 +14,7 @@ class AppControl extends React.Component {
             selectedFile: null,
             selectedStyle: null,
             selectedSection: null,
-            parArray: null,
+            sectionArray: null,
             parNumber: null,
         }
     }
@@ -28,28 +28,28 @@ class AppControl extends React.Component {
                 const file = {
                     url: htmlFile.get("url"),
                     html: htmlFile.get("html"),
-                    parArray: htmlFile.get("parArray"),
+                    sectionArray: htmlFile.get("sectionArray"),
                     id: htmlFile.id
                 }
 
-                this.setState({selectedFile: file, selectedSection: file.parArray[0], parArray: file.parArray, parNumber: 0});
+                this.setState({selectedFile: file, selectedSection: file.sectionArray[0], sectionArray: file.sectionArray, parNumber: 0});
             });
     }
 
     handleKeyDown = (e) => {
 
-        const {parNumber, parArray} = this.state
+        const {parNumber, sectionArray} = this.state
 
-        if (e.keyCode === 40 && parNumber < parArray.length) {
+        if (e.keyCode === 40 && parNumber < sectionArray.length) {
             const newParNumber = parNumber +1;
             this.setState({parNumber: newParNumber,
-            selectedSection: parArray[parNumber]
+            selectedSection: sectionArray[parNumber]
             })
 
         } else if (e.keyCode === 38 && parNumber >0) {
             const newParNumber = parNumber - 1;
             this.setState({parNumber: newParNumber,
-            selectedSection: parArray[parNumber]
+            selectedSection: sectionArray[parNumber]
             })
         }
     }
