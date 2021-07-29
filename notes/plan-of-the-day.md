@@ -17,6 +17,11 @@ At first it wasn't working when I tested on some other people's computer but the
 1. Add random class each time the arrow is pressed
 
 1. Add loading message to API situation
+    * Added a snake game
+    * It becomes visible when API starts loading but need to figure out how to move on once API is done
+        It is visible if(isLoading)
+        When it renders if(isLoaded it will display the ADD TO FIRESTORE button)        
+
 1. Fix visible states
 
 <div class = "done">
