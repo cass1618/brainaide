@@ -3,6 +3,23 @@
 </style>
 
 
+THURSDAY JULY 29
+## Make the site look generally presentable/useable and deploy!
+    1. Update Header - maybe get a logo - UNDER CONSTRUCTION
+    2. Add general CSS to main pages
+    3. Add button to return home and to add a new file
+    4. Have a button to select full view or individual sections
+    5. Add a splash page
+    6. Link to where the game came from
+    7. Organize structure - put ApiFirestoreControl inside AppControl
+
+
+OTHER
+
+1. Authentication so that people can have their own file selection
+
+
+
 
 
 WEDNESDAY JULY 28
@@ -14,11 +31,16 @@ At first it wasn't working when I tested on some other people's computer but the
 
 1. Add style buttons and create styles
 1. Add better style to the arrow part
+
+<div class="done">
 1. Add random class each time the arrow is pressed
     * Used Math.random to assign a random letter as style
     * In order to access stylesheet, need to pass styles.letter rather than styles."letter"
     * Use eval() to change the string to value
     * Apparently eval is not a great idea, however React doesn't seem to like Function either
+
+    * I ended up applying the style in the paragraph component rather than App Control
+</div>
 
 <div class="done">
 1. Add loading message to API situation
@@ -53,7 +75,7 @@ TUESDAY JULY 27
 </div>
 
 
-* I was trying to format the <code> blocks but they were all separate.  But then I realized there is a <pre> tag enclosing the entire section of code
+* I was trying to format the code blocks but they were all separate.  But then I realized there is a pre tag enclosing the entire section of code
 
 
 

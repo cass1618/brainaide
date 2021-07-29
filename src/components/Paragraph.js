@@ -12,7 +12,6 @@ function Paragraph(props) {
             <div className = "wrapper">
                 <div onKeyDown = {() => props.onKeyDown(props.id)}>
                 <Markup content={"<p class = "+props.randomStyle+">"+props.section+"</p1>"}/>
-                <p>RANDOM STYLE: {props.randomStyle}</p>
                 </div>
             </div>
         </React.Fragment>

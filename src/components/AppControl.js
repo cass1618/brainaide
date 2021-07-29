@@ -15,7 +15,7 @@ class AppControl extends React.Component {
             selectedStyle: null,
             selectedSection: null,
             sectionArray: null,
-            parNumber: null,
+            parNumber: 0,
             randomStyle: "z"
         }
     }
@@ -39,25 +39,55 @@ class AppControl extends React.Component {
 
     handleKeyDown = (e) => {
 
+        
         const {parNumber, sectionArray} = this.state
+        console.log("beg. par#: "+parNumber)
         //Select random style from a(97) to z(122)
-        const randomStyle = String.fromCharCode(Math.ceil(Math.random() * 26)+96)
+        const currentStyle = this.state.randomStyle;
+        console.log("CURRENT STYLE: "+currentStyle)
+
+        let nextStyle;
+        let prevStyle;
+        if(currentStyle === "z") {
+            nextStyle = "a";
+            console.log("nextSTyle: "+nextStyle)
+        } else {
+            nextStyle = String.fromCharCode(currentStyle.charCodeAt()+1)
+            console.log("nextSTyle: "+nextStyle)
+        }
+
+        if(currentStyle === "a") {
+            prevStyle = "z";
+            console.log("prevSTyle: "+prevStyle)
+        } else {
+            prevStyle = String.fromCharCode(currentStyle.charCodeAt()-1)
+            console.log("prevSTyle: "+prevStyle)
+        }
+
+        const randomStyle = String.fromCharCode(Math.ceil(Math.random() * 26)+96);
 
         if (e.keyCode === 40 && parNumber < sectionArray.length) {
             const newParNumber = parNumber +1;
-            this.setState({parNumber: newParNumber,
-            selectedSection: sectionArray[parNumber], randomStyle: randomStyle
-            });
-
-        } else if (e.keyCode === 38 && parNumber >0) {
-            const newParNumber = parNumber - 1;
+            console.log("UP newParNum: "+newParNumber)
             this.setState({parNumber: newParNumber,
             selectedSection: sectionArray[parNumber], 
             randomStyle: randomStyle
             });
-        }
 
-        
+        } else if (e.keyCode === 38 && parNumber > 0) {
+            const newParNumber = parNumber - 1;
+            console.log("UP newParNum: "+newParNumber)
+            this.setState({parNumber: newParNumber,
+            selectedSection: sectionArray[parNumber], 
+            randomStyle: randomStyle
+            });
+
+        } else if (e.keyCode === 37) {
+            this.setState({randomStyle: prevStyle});
+
+        } else if (e.keyCode === 39) {
+            this.setState({randomStyle: nextStyle});
+        }
     }
 
     handleClickingCode = () => {
