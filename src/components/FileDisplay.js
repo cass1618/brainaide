@@ -17,7 +17,7 @@ var htmlInput = htmlFile.html;
 
 
 var isValidNode = function () {
-  return true;
+    return true;
 };
 
 // Order matters. Instructions are processed in the order they're defined
@@ -26,16 +26,16 @@ var processingInstructions = [
     {
     // Custom <h1> processing
         shouldProcessNode: function (node) {
-          return node.parent && node.parent.name && node.parent.name === 'table';
+            return node.parent && node.parent.name && node.parent.name === 'table';
         },
         processNode: function (node, children) {
-          return null;
+            return null;
         }
     },
     {
         // Anything else
         shouldProcessNode: function (node) {
-          return true;
+            return true;
         },
     processNode: processNodeDefinitions.processDefaultNode
     }
@@ -66,7 +66,6 @@ var reactHtml = ReactDOMServer.renderToStaticMarkup(reactComponent);
             <div>
                 <h1>FILE DISPLAY</h1>
                 <Markup content={parClassString}/>
-                {parClassString}
             </div>
         </React.Fragment>
     );

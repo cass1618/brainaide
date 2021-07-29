@@ -2,6 +2,7 @@ import React from "react";
 import {withFirestore} from "react-redux-firebase";
 import UploadToFirestore from "./UploadToFirestore";
 import Api from "./Api";
+import AppControl from "./AppControl"
 import LoadingScreen from "./LoadingScreen";
 import request from "request-promise";
 
@@ -45,7 +46,7 @@ class ApiFirestoreControl extends React.Component {
         let currentlyVisibleState = null;
 
         if(this.state.gameOver) {
-            currentlyVisibleState = null;
+            currentlyVisibleState = <AppControl/>
         }
 
         else if(this.state.isLoaded) {

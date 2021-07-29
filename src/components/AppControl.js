@@ -5,6 +5,7 @@ import {withFirestore} from "react-redux-firebase";
 import styles from "./../styles/code.module.css";
 import "./../styles/AppControl.css"
 import Paragraph from "./Paragraph";
+import ApiFirestoreControl from "./ApiFirestoreControl";
 
 class AppControl extends React.Component {
 
@@ -18,7 +19,8 @@ class AppControl extends React.Component {
             sectionArray: null,
             parNumber: 0,
             randomStyle: "z",
-            splashPageVisible: true
+            splashPageVisible: true,
+            uploading: false
         }
     }
 
@@ -42,27 +44,23 @@ class AppControl extends React.Component {
     handleKeyDown = (e) => {
 
         const {parNumber, sectionArray} = this.state
-        console.log("beg. par#: "+parNumber)
         //Select random style from a(97) to z(122)
         const currentStyle = this.state.randomStyle;
-        console.log("CURRENT STYLE: "+currentStyle)
 
         let nextStyle;
         let prevStyle;
         if(currentStyle === "z") {
             nextStyle = "a";
-            console.log("nextSTyle: "+nextStyle)
+
         } else {
             nextStyle = String.fromCharCode(currentStyle.charCodeAt()+1)
-            console.log("nextSTyle: "+nextStyle)
         }
 
         if(currentStyle === "a") {
             prevStyle = "z";
-            console.log("prevSTyle: "+prevStyle)
+
         } else {
             prevStyle = String.fromCharCode(currentStyle.charCodeAt()-1)
-            console.log("prevSTyle: "+prevStyle)
         }
 
         const randomStyle = String.fromCharCode(Math.ceil(Math.random() * 26)+96);
@@ -103,7 +101,17 @@ class AppControl extends React.Component {
         this.setState({selectedStyle: "lineByLine"});
     }
 
+    handleClickingUploadFile = () => {
+        this.setState({uploading: true})
+    }
+
+    handleEndLoading = () => {
+        this.setState({uploading: false})
+    }
+
     render() {
+
+        console.log(this.state)
 
         let currentlyVisibleState = null;
 
@@ -119,16 +127,22 @@ class AppControl extends React.Component {
                     <button className = "enter" onClick = {this.handleClickingEnter}>ENTER!</button>
                 </div>
         
+        } else if(this.state.uploading) {
+            currentlyVisibleState = <ApiFirestoreControl onGameOver = {this.handleEndLoading}/>
+
         } else if(this.state.selectedFile === null) {
             currentlyVisibleState =
-            <FileList onSelectingFile = {this.handleSelectingFile}/>
+            <div>
+                <button onClick = {this.handleClickingUploadFile}>UPLOAD FILE</button>
+                <FileList onSelectingFile = {this.handleSelectingFile}/>
+            </div>
 
-        } else if(this.state.selectedFile !== null && this.state.selectedFile === null) {
+        } else if(this.state.selectedFile !== null && this.state.selectedStyle === null) {
             currentlyVisibleState = 
             <div>
-                <FileDisplay htmlFile = {this.state.selectedFile}/>
                 <button onClick = {this.handleClickingCode}>CODE</button>
                 <button onClick = {this.handleClickingLineByLine}>LINE-BY-LINE</button>
+                <FileDisplay htmlFile = {this.state.selectedFile}/>
             </div>
 
         } else if(this.state.selectedSection !== null && this.state.selectedStyle === "lineByLine") {
@@ -146,7 +160,6 @@ class AppControl extends React.Component {
     
         return (
             <React.Fragment>
-                {/* {<button onClick = {this.handleClickingCode}>code</button>} */}
                 {currentlyVisibleState}
             </React.Fragment>
         );
