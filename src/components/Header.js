@@ -1,10 +1,10 @@
 import React from "react";
+import "./../styles/AppControl.css"
 
 function Header() {
     return (
         <React.Fragment>
-            <h1>BRAINAIDE</h1>
-            <h2>Currently in development. Expected completion July 28.</h2>
+            <h3 className = "header">brainaide focus helper - currently under construction!  please check back for updates!</h3>
         </React.Fragment>
     );
 }

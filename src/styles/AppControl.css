@@ -1,0 +1,46 @@
+div {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: skyblue
+}
+
+h1 {
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    color:royalblue;
+    justify-self: center;
+    font-size: 5vh
+}
+
+p {
+    font-family:monospace;
+    justify-self: left;
+    color: royalblue;
+    font-size: 3vh
+}
+
+.note {
+    font-family: monospace;
+    font-size: 2vh;
+    color: teal
+}
+
+.enter {
+    background-color: orchid;
+    border: 1px solid whitesmoke;
+    height: 100px;
+    width: 400px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.header {
+    color: lightcoral
+}
+
+.header:hover {
+    color: lightcoral
+}
