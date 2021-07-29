@@ -54,11 +54,25 @@ var reactHtml = ReactDOMServer.renderToStaticMarkup(reactComponent);
     const array = body.split("<p>");
     let parArray = [];
     for(let i = 1; i<array.length; i++) {
-        parArray.push("<p>" + array[i].split("</p>") + "</p>");
+        parArray.push(array[i].split("</p>"));
     }
+    console.log("par array after first loop: "+parArray);
 
-    for(let i =0; i<parArray.length; i++) {
-
+    let sectionArray = [];
+    //for each element in parArray, check if it has more than 2 sentences
+    for(let i = 0; i<parArray.length; i++) {
+        //Count number of periods in parArray[i]
+        let counter = 0;
+        for(let j = 0; j < parArray[i].length - 1; j++) {
+            if(parArray[i][j]==="." && parArray[i][j+1]===".") {
+                console.log("period")
+                counter++;
+            }
+        }
+        if (counter > 2) {
+            console.log(">2 periods")
+            sectionArray.push()
+        }
     }
 
     return (

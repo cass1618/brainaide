@@ -12,7 +12,7 @@ function Paragraph(props) {
             <div className = "wrapper">
                 <div onKeyDown = {() => props.onKeyDown(props.id)}>
                 <Markup content={"<p>"+props.section+"</p>"}/>
-                    {/* <h3>{"<p>"+props.section+"</p>"}</h3> */}
+                    <h3>{"<p>"+props.section+"</p>"}</h3>
                 </div>
             </div>
         </React.Fragment>
