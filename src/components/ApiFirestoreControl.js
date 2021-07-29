@@ -2,6 +2,7 @@ import React from "react";
 import {withFirestore} from "react-redux-firebase";
 import UploadToFirestore from "./UploadToFirestore";
 import Api from "./Api";
+import LoadingScreen from "./LoadingScreen";
 import request from "request-promise";
 
 class ApiFirestoreControl extends React.Component {
@@ -11,6 +12,7 @@ class ApiFirestoreControl extends React.Component {
         this.state = {
             error: null,
             isLoaded: false,
+            isLoading: false,
             anArray: ["url", "<html>"]
         }
     }
@@ -20,6 +22,7 @@ class ApiFirestoreControl extends React.Component {
     }
 
     handleMakingApiCall = (url) => {
+        this.setState({isLoading: true});
 
         request(`https://api.scraperapi.com?api_key=${process.env.REACT_APP_API_KEY}&url=${url}&render=true&autoparse=true&country_code=us`)
 
@@ -37,7 +40,11 @@ class ApiFirestoreControl extends React.Component {
     render() {
         let currentlyVisibleState = null;
 
-        if(!this.state.isLoaded) {
+        if(this.state.isLoading) {
+            currentlyVisibleState = <LoadingScreen/>
+        }
+
+        else if(!this.state.isLoaded) {
             currentlyVisibleState = <Api makeApiCall = {this.handleMakingApiCall} />
 
         } else {

@@ -45,11 +45,6 @@ function UploadToFirestore(props) {
     var reactComponent = htmlToReactParser.parseWithInstructions(htmlInput, isValidNode, processingInstructions);
     var reactHtml = ReactDOMServer.renderToStaticMarkup(reactComponent);
     
-    
-
-    
-
-        console.log("BEG OF SPLIT FUNCTION")
         //Extract the body of the html by splitting at starting and closing tags
         if(reactHtml.includes("<body>")) {
         body = reactHtml.split("<body>")[1]
@@ -80,7 +75,6 @@ function UploadToFirestore(props) {
     
             //iterate through each character in the ith string
             for(let j=0; j< currentString.length; j++) {
-                // console.log("j: "+j+" currentChar: "+currentString[j]);
                 //Count periods that have a space after to indicate end of sentence
                 if(currentString[j] === "." && currentString[j+1] === " ") {
                     numberOfSentences++;
@@ -102,7 +96,6 @@ function UploadToFirestore(props) {
         //The array ends up with some empty strings so remove them
         for(let i = 0; i < sectionArray.length; i++) {
             if(sectionArray[i] === "" || sectionArray[i] === " ") {
-                console.log("SPLICE")
                 sectionArray.splice(i, 1)
             }
         }
@@ -116,7 +109,6 @@ function UploadToFirestore(props) {
         props.addArrayToFirestore();
 
         const sectionArray = SeparateSections(fullText);
-        console.log("END SEPARATE PARS")
 
         return firestore.collection("htmlFiles").add(
             {

@@ -19,6 +19,9 @@ At first it wasn't working when I tested on some other people's computer but the
 1. Add loading message to API situation
 1. Fix visible states
 
+<div class = "done">
+* Got sidetracked and decided I needed to split up sentences further.  Now there are some blank strings I will need to remove.
+</div>
 
 
 
