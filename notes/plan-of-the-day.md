@@ -2,6 +2,30 @@
 .done {text-decoration: line-through;}
 </style>
 
+
+
+
+WEDNESDAY JULY 28
+
+<div class = "done">
+1. See if it works to deploy the site on my domain brainaide.org
+At first it wasn't working when I tested on some other people's computer but then I got it to work somehow
+</div>
+
+1. Add style buttons and create styles
+1. Add better style to the arrow part
+1. Add random class each time the arrow is pressed
+
+1. Add loading message to API situation
+1. Fix visible states
+
+
+
+
+
+
+
+
 TUESDAY JULY 27
 <div class="done">
 1. Figure out how to style different elements differently
@@ -175,3 +199,114 @@ HOW DO I PASS AN ARRAY FROM A CLASS COMPONENT TO A FUNCTIONAL COMPONENT
 
 
 Next step: I have the array in the Functional Component, now I need to add it to Firestore
+
+
+
+
+Date:   Wed Jul 28 12:36:23 2021 -0700  2
+
+Date:   Wed Jul 28 10:53:00 2021 -0700
+
+Date:   Wed Jul 28 10:48:27 2021 -0700
+
+Date:   Wed Jul 28 02:03:14 2021 -0700 2
+
+Date:   Wed Jul 28 00:27:36 2021 -0700
+
+Date:   Wed Jul 28 00:11:40 2021 -0700
+
+Date:   Tue Jul 27 23:43:04 2021 -0700 11
+
+Date:   Tue Jul 27 19:01:16 2021 -0700
+
+Date:   Tue Jul 27 16:57:16 2021 -0700
+
+Date:   Tue Jul 27 15:27:24 2021 -0700
+
+Date:   Tue Jul 27 12:30:05 2021 -0700
+
+Date:   Tue Jul 27 00:19:34 2021 -0700 
+
+Date:   Tue Jul 27 00:01:55 2021 -0700
+
+Date:   Mon Jul 26 22:30:48 2021 -0700
+
+Date:   Sat Jul 24 19:10:38 2021 -0700 1.5
+
+Date:   Sat Jul 24 18:25:33 2021 -0700
+
+Date:   Sat Jul 24 17:31:31 2021 -0700
+
+Date:   Sat Jul 24 17:28:24 2021 -0700
+
+Date:   Sat Jul 24 00:55:16 2021 -0700
+
+Date:   Fri Jul 23 18:24:58 2021 -0700 1
+
+Date:   Fri Jul 23 18:09:40 2021 -0700
+
+Date:   Fri Jul 23 17:33:45 2021 -0700 
+
+Date:   Thu Jul 22 00:16:23 2021 -0700 9
+
+Date:   Wed Jul 21 23:09:59 2021 -0700 
+
+Date:   Wed Jul 21 15:08:56 2021 -0700
+
+Date:   Tue Jul 20 18:06:49 2021 -0700 1
+
+Date:   Tue Jul 20 16:58:52 2021 -0700
+
+Date:   Mon Jul 19 23:51:27 2021 -0700 5.25
+
+Date:   Mon Jul 19 22:35:02 2021 -0700
+
+Date:   Mon Jul 19 22:30:48 2021 -0700
+
+Date:   Mon Jul 19 19:50:30 2021 -0700
+
+Date:   Mon Jul 19 17:42:18 2021 -0700
+
+Date:   Mon Jul 19 17:35:22 2021 -0700
+
+Date:   Sun Jul 18 23:31:18 2021 -0700 7.5
+
+Date:   Sun Jul 18 22:46:31 2021 -0700
+
+Date:   Sun Jul 18 16:45:31 2021 -0700
+
+Date:   Sun Jul 18 15:38:21 2021 -0700
+
+Date:   Sun Jul 18 15:02:45 2021 -0700
+
+Date:   Sat Jul 17 23:47:08 2021 -0700 4.75
+
+Date:   Sat Jul 17 18:16:21 2021 -0700
+
+Date:   Sat Jul 17 17:55:52 2021 -0700
+
+Date:   Sat Jul 17 17:04:04 2021 -0700
+
+Date:   Fri Jul 16 19:28:16 2021 -0700 6.5
+
+Date:   Fri Jul 16 16:44:15 2021 -0700
+
+Date:   Fri Jul 16 16:27:58 2021 -0700
+
+Date:   Fri Jul 16 15:50:25 2021 -0700
+
+Date:   Fri Jul 16 15:38:12 2021 -0700
+
+Date:   Fri Jul 16 15:08:45 2021 -0700
+
+Date:   Fri Jul 16 14:51:47 2021 -0700
+
+Date:   Fri Jul 16 14:20:53 2021 -0700
+
+Date:   Fri Jul 16 14:02:25 2021 -0700
+
+Date:   Fri Jul 16 13:28:12 2021 -0700
+
+Date:   Fri Jul 16 13:17:53 2021 -0700
+
+Date:   Fri Jul 16 12:56:55 2021 -0700

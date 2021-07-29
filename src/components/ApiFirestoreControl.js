@@ -21,8 +21,6 @@ class ApiFirestoreControl extends React.Component {
 
     handleMakingApiCall = (url) => {
 
-        console.log("this file has been changed")
-
         request(`https://api.scraperapi.com?api_key=${process.env.REACT_APP_API_KEY}&url=${url}&render=true&autoparse=true&country_code=us`)
 
         .then(response => {
@@ -48,7 +46,6 @@ class ApiFirestoreControl extends React.Component {
 
         return (
             <React.Fragment>
-                <p>UPDATED 11:41</p>
             {currentlyVisibleState}
             </React.Fragment>
         )

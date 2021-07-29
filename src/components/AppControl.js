@@ -16,7 +16,6 @@ class AppControl extends React.Component {
             selectedSection: null,
             parArray: null,
             parNumber: null,
-            result: []
         }
     }
 
@@ -69,7 +68,7 @@ class AppControl extends React.Component {
 
     } else if(this.state.selectedSection !== null) {
         document.addEventListener("keydown", this.handleKeyDown, false);
-            currentlyVisibleState = <div><Paragraph section = {this.state.selectedSection} onKeyDown = {this.handleKeyDown}/></div>
+            currentlyVisibleState = <div className={styles.code}><Paragraph section = {this.state.selectedSection} onKeyDown = {this.handleKeyDown}/></div>
         }
 
         else if(this.state.selectedStyle === "code") {
