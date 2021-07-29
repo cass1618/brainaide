@@ -18,7 +18,6 @@ class ApiFirestoreControl extends React.Component {
         }
     }
 
-
     handleAddingArrayToFirestore = () => {
         this.setState({gameOver: true});
     }
@@ -27,7 +26,7 @@ class ApiFirestoreControl extends React.Component {
         this.setState({isLoading: true});
         setTimeout(() => {
             this.setState({gameOver: true});
-        }, 30000);
+        }, 60000);
 
         request(`https://api.scraperapi.com?api_key=${process.env.REACT_APP_API_KEY}&url=${url}&render=true&autoparse=true&country_code=us`)
 
@@ -50,11 +49,11 @@ class ApiFirestoreControl extends React.Component {
         }
 
         else if(this.state.isLoaded) {
-            currentlyVisibleState = <div><LoadingScreen/><UploadToFirestore propsFromClass = {this.state.anArray} addArrayToFirestore = {this.handleAddingArrayToFirestore}/></div>
+            currentlyVisibleState = <div><UploadToFirestore propsFromClass = {this.state.anArray} addArrayToFirestore = {this.handleAddingArrayToFirestore}/><LoadingScreen/></div>
         }
         
         else if(this.state.isLoading) {
-            currentlyVisibleState = <LoadingScreen/>
+            currentlyVisibleState = <div><h1>THIS API TAKES FOREVER SO HERE'S A GAME WHILE YOU WAIT!</h1><LoadingScreen/></div>
         }
 
         else if(!this.state.isLoaded) {

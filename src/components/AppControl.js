@@ -66,26 +66,26 @@ class AppControl extends React.Component {
             <FileList onSelectingFile = {this.handleSelectingFile}/>
         
 
-    } else if(this.state.selectedSection !== null) {
-        document.addEventListener("keydown", this.handleKeyDown, false);
-            currentlyVisibleState = <div className={styles.code}><Paragraph section = {this.state.selectedSection} onKeyDown = {this.handleKeyDown}/></div>
-        }
+        } else if(this.state.selectedSection !== null) {
+            document.addEventListener("keydown", this.handleKeyDown, false);
+                currentlyVisibleState = <div className={styles.code}><Paragraph section = {this.state.selectedSection} onKeyDown = {this.handleKeyDown}/></div>
+            }
 
         else if(this.state.selectedStyle === "code") {
 
-        currentlyVisibleState = 
-        <div className={styles.code}><FileDisplay htmlFile = {this.state.selectedFile}/></div>
+            currentlyVisibleState = 
+            <div className={styles.code}><FileDisplay htmlFile = {this.state.selectedFile}/></div>
         } else if(this.state.selectedFile !== null) {
             currentlyVisibleState = <FileDisplay htmlFile = {this.state.selectedFile}/>
         }else {
 
-        currentlyVisibleState =
-        <FileList onSelectingFile = {this.handleSelectingFile}/>
+            currentlyVisibleState =
+            <FileList onSelectingFile = {this.handleSelectingFile}/>
         }
     
         return (
             <React.Fragment>
-                {<button onClick = {this.handleClickingCode}>code</button>}
+                {/* {<button onClick = {this.handleClickingCode}>code</button>} */}
                 {currentlyVisibleState}
             </React.Fragment>
         );

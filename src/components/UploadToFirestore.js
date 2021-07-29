@@ -125,7 +125,8 @@ function UploadToFirestore(props) {
 
             {/* I couldn't figure out any other way to call the function other than putting it inside a button */}
             <form onSubmit={addFileToFirestore}>
-                <button type="submit">ADD TO FIRESTORE</button>
+                <h1>API IS DONE LOADING!</h1>
+                <button type="submit">END GAME</button>
             </form>
 
         </React.Fragment>
