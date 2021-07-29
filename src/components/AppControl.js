@@ -16,6 +16,7 @@ class AppControl extends React.Component {
             selectedSection: null,
             sectionArray: null,
             parNumber: null,
+            randomStyle: "z"
         }
     }
 
@@ -39,19 +40,24 @@ class AppControl extends React.Component {
     handleKeyDown = (e) => {
 
         const {parNumber, sectionArray} = this.state
+        //Select random style from a(97) to z(122)
+        const randomStyle = String.fromCharCode(Math.ceil(Math.random() * 26)+96)
 
         if (e.keyCode === 40 && parNumber < sectionArray.length) {
             const newParNumber = parNumber +1;
             this.setState({parNumber: newParNumber,
-            selectedSection: sectionArray[parNumber]
-            })
+            selectedSection: sectionArray[parNumber], randomStyle: randomStyle
+            });
 
         } else if (e.keyCode === 38 && parNumber >0) {
             const newParNumber = parNumber - 1;
             this.setState({parNumber: newParNumber,
-            selectedSection: sectionArray[parNumber]
-            })
+            selectedSection: sectionArray[parNumber], 
+            randomStyle: randomStyle
+            });
         }
+
+        
     }
 
     handleClickingCode = () => {
@@ -68,8 +74,8 @@ class AppControl extends React.Component {
 
         } else if(this.state.selectedSection !== null) {
             document.addEventListener("keydown", this.handleKeyDown, false);
-                currentlyVisibleState = <div className={styles.code}><Paragraph section = {this.state.selectedSection} onKeyDown = {this.handleKeyDown}/></div>
-            }
+            currentlyVisibleState = <div><Paragraph section = {this.state.selectedSection} randomStyle = {this.state.randomStyle} onKeyDown = {this.handleKeyDown}/></div>
+        }
 
         else if(this.state.selectedStyle === "code") {
 

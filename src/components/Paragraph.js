@@ -11,8 +11,8 @@ function Paragraph(props) {
         <React.Fragment>
             <div className = "wrapper">
                 <div onKeyDown = {() => props.onKeyDown(props.id)}>
-                <Markup content={"<p>"+props.section+"</p>"}/>
-                    <h3>{"<p>"+props.section+"</p>"}</h3>
+                <Markup content={"<p class = "+props.randomStyle+">"+props.section+"</p1>"}/>
+                <p>RANDOM STYLE: {props.randomStyle}</p>
                 </div>
             </div>
         </React.Fragment>
@@ -23,6 +23,7 @@ Paragraph.propTypes = {
     url: PropTypes.string,
     html: PropTypes.string,
     section: PropTypes.string,
+    randomStyle: PropTypes.string,
     onKeyDown: PropTypes.func,
 }
 

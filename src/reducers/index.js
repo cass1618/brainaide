@@ -1,4 +1,3 @@
-import htmlReducer from "./html-reducer";
 import {combineReducers} from "redux";
 import {firestoreReducer} from "redux-firestore";
 

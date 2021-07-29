@@ -15,6 +15,10 @@ At first it wasn't working when I tested on some other people's computer but the
 1. Add style buttons and create styles
 1. Add better style to the arrow part
 1. Add random class each time the arrow is pressed
+    * Used Math.random to assign a random letter as style
+    * In order to access stylesheet, need to pass styles.letter rather than styles."letter"
+    * Use eval() to change the string to value
+    * Apparently eval is not a great idea, however React doesn't seem to like Function either
 
 <div class="done">
 1. Add loading message to API situation
