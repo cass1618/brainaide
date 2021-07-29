@@ -14,6 +14,7 @@ function Api(props) {
                 <input
                     type = "url"
                     name = "url"
+                    style = {{width: "600px"}}
                     placeholder = "Enter url"/>
                 <button type="submit">CALL API</button>
             </form>

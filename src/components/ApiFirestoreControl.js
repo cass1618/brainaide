@@ -41,7 +41,7 @@ class ApiFirestoreControl extends React.Component {
             currentlyVisibleState = <Api makeApiCall = {this.handleMakingApiCall} />
 
         } else {
-            currentlyVisibleState = <UploadToFirestore makeApiCall = {this.handleMakingApiCall} propsFromClass = {this.state.anArray} addArrayToFirestore = {this.handleAddingArrayToFirestore}/>
+            currentlyVisibleState = <UploadToFirestore propsFromClass = {this.state.anArray} addArrayToFirestore = {this.handleAddingArrayToFirestore}/>
         }
 
         return (

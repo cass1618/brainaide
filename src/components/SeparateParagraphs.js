@@ -5,6 +5,7 @@ import "./../styles/SeparateParagraphs.css";
 
 function SeparateParagraphs(props) {
 
+    console.log("SEPARATE PARS")
     const {htmlFile} = props;
     let body = "body-default";
 
@@ -43,6 +44,7 @@ var reactComponent = htmlToReactParser.parseWithInstructions(htmlInput, isValidN
 var reactHtml = ReactDOMServer.renderToStaticMarkup(reactComponent);
 
 
+    console.log("BEG OF SPLIT FUNCTION")
     if(reactHtml.includes("<body>")) {
     body = reactHtml.split("<body>")[1]
 
@@ -64,16 +66,26 @@ var reactHtml = ReactDOMServer.renderToStaticMarkup(reactComponent);
         //Count number of periods in parArray[i]
         let counter = 0;
         for(let j = 0; j < parArray[i].length - 1; j++) {
-            if(parArray[i][j]==="." && parArray[i][j+1]===".") {
+            if(parArray[i][j]==="." && parArray[i][j+1]===" ") {
                 console.log("period")
                 counter++;
             }
         }
-        if (counter > 2) {
-            console.log(">2 periods")
-            sectionArray.push()
+        console.log("count for "+parArray[i]+" is "+counter)
+        if (counter > 1) {
+            console.log(">1 periods")
+            //split the current element of the array in to sentences
+            const tempArray = parArray[i].split(".")
+            //push each element of the array to section array
+            for(let i = 0; i < tempArray.length; i++) { 
+                sectionArray.push(tempArray[i]);
+            }
+        } else {
+            //If it contains less than 2 sentences, push the whole element to section array
+            sectionArray.push(parArray[i])
         }
     }
+    console.log("SECTION ARRAY: "+sectionArray)
 
     return (
         {parArray}
