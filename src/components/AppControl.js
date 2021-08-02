@@ -113,8 +113,6 @@ class AppControl extends React.Component {
 
     render() {
 
-        console.log(this.state)
-
         let currentlyVisibleState = null;
 
         if(this.state.splashPageVisible) {
@@ -124,22 +122,17 @@ class AppControl extends React.Component {
                         <Wave 
                             text="WELCOME TO BRAINAIDE" 
                             effect="pop" 
-                            effectChange={1.1618}
-                            effectDuration={1.1618}/>
+                            effectChange={.2}
+                            effectDuration={.5}/>
                     </div>
                     <div className = "wave2">
                         <Wave 
                             text="designed to entertain your prefrontal cortex so it doesn't try to distract you or wander off" 
-                            effect="pop" 
+                            effect="stretch" 
                             effectChange={2}
-                            effectDuration={3.1415}/>
+                            effectDuration={.5}/>
                     </div>
-                    {/* <h1 className = "welcome">WELCOME TO BRAINAIDE!</h1>
-                    <h1>The goal is to provide your brain with something interesting to keep it occupied so that it doesn't wander off!</h1>
-                    <h1 className = "note">NOTE: This app has a great deal of functionality, but a little more style work is needed for it to be truly helpful.</h1>
-                    <p>First upload the URL of a page you would like to read.</p>
-                    <p>This site is optimized for learnhowtoprogram.com but will also work with other pages you might need to read.</p>
-                    <p>Select the page you'd like to read from the list and then select a view!</p> */}
+
                     <button className = "enter" onClick = {this.handleClickingEnter}>ENTER!</button>
                 </div>
         

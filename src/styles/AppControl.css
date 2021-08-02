@@ -24,8 +24,9 @@ font-family: 'Warnes', cursive; */
     margin-top: 3vh;
     padding: 5vh;
     font-family: 'Syncopate', sans-serif;
-    font-size: 18vh;
-    color: transparent;
+    font-size: 16vh;
+    width: 90%;
+    color: purple;
     font-weight: 50vh;
     text-shadow: whitesmoke 10px 10px 5px;
     text-align: center
@@ -35,6 +36,7 @@ font-family: 'Warnes', cursive; */
     margin: 3vh;
     font-family: 'Righteous', cursive;
     font-size: 8vh;
+    width: 90%;
     color: transparent;
     font-weight: 20vh;
     text-shadow: whitesmoke 10px 10px 5px;
